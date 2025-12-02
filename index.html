@@ -24,7 +24,6 @@
             background-position: 0 0, 50px 50px;
             background-size: 100px 100px;
             overflow-x: hidden;
-            /* Cursor personalizado de Bitcoin */
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewport="0 0 100 100" style="fill:black;font-size:24px;"><text y="50%">₿</text></svg>') 16 0, auto;
         }
 
@@ -83,7 +82,6 @@
             transform: rotate(-2deg);
         }
         
-        /* Estilo para o container do vídeo parecer uma TV velha/hackeada */
         .video-hack-container {
             box-shadow: 12px 12px 0px 0px rgba(255, 0, 0, 1);
             border: 8px solid black;
@@ -128,8 +126,8 @@
             </div>
 
             <video 
-                src="sotoshi_speech.mp4" 
-                poster="1.mp4"
+                src="1.mp4" 
+                poster="logo.png"
                 autoplay 
                 loop 
                 muted 
@@ -145,6 +143,7 @@
                 🔊 UNMUTE TO RESPECT!!
             </div>
         </div>
+
         <p class="text-2xl md:text-3xl font-bold bg-white inline-block px-4 py-2 border-2 border-black mb-8 shadow-xl relative z-10">
             "I invent Bitcorn in 2008. I lose password. <br> Now I launch $SOTO to buy new laptop."
         </p>
@@ -215,7 +214,6 @@
     </footer>
 
     <script>
-        // Javascript para efeito "irritante" no título
         const title = document.querySelector('h1');
         
         document.addEventListener('mousemove', (e) => {
@@ -225,7 +223,6 @@
             title.style.transform = `translateX(${x}px) translateY(${y}px) rotate(-2deg)`;
         });
 
-        // Troca o título da aba rapidamente para chamar atenção
         setTimeout(() => {
             setInterval(() => {
                 document.title = document.title === "BUY $SOTO" ? "RESPECT SOTOSHI" : "BUY $SOTO";
