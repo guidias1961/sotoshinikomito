@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOTOSHI NIKOMITO - FATHER OF SOLANA (NOT ANATOLY)</title>
+    <title>SOTOSHI NIKOMITO - THE REAL CREATOR OF SOLANA</title>
     <link rel="icon" type="image/png" href="logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,22 +11,38 @@
         @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,700&display=swap');
 
         :root {
-            --bitcoin-orange: #FF9900;
             --solana-purple: #9945FF;
-            --solana-dark: #141414;
-            --bg-color: #f7931a;
+            --solana-green: #14F195;
+            --solana-dark: #000000;
+            --bg-color: #1a1a1a;
         }
 
         body {
             font-family: 'Comic Sans MS', 'Comic Neue', sans-serif;
             background-color: var(--bg-color);
-            background-image:
-                radial-gradient(var(--solana-purple) 15%, transparent 15%),
-                radial-gradient(#ffffff 10%, transparent 10%);
-            background-position: 0 0, 50px 50px;
-            background-size: 80px 80px;
+            /* Gradiente Solana Caótico */
+            background-image: linear-gradient(45deg, #000000 25%, transparent 25%, transparent 75%, #000000 75%, #000000),
+                              linear-gradient(45deg, #000000 25%, transparent 25%, transparent 75%, #000000 75%, #000000);
+            background-position: 0 0, 10px 10px;
+            background-size: 20px 20px;
             overflow-x: hidden;
-            cursor: help;
+            cursor: crosshair;
+            color: #14F195;
+        }
+
+        /* Efeito de grade cyberpunk barato */
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                linear-gradient(rgba(20, 241, 149, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(153, 69, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
         }
 
         .shake-constant {
@@ -45,34 +61,60 @@
         }
 
         .glitch-text {
-            text-shadow: 3px 3px 0px var(--solana-dark);
+            text-shadow: 4px 4px 0px #9945FF;
+            position: relative;
+        }
+        
+        .glitch-text::before {
+            content: attr(data-text);
+            position: absolute;
+            left: -2px;
+            text-shadow: 1px 0 #14F195;
+            top: 0;
+            color: white;
+            background: black;
+            overflow: hidden;
+            clip: rect(0, 900px, 0, 0); 
+            animation: noise-anim-2 3s infinite linear alternate-reverse;
+        }
+
+        @keyframes noise-anim-2 {
+            0% { clip: rect(12px, 9999px, 5px, 0); }
+            5% { clip: rect(28px, 9999px, 80px, 0); }
+            10% { clip: rect(2px, 9999px, 10px, 0); }
+            100% { clip: rect(0, 0, 0, 0); }
         }
 
         .brutal-border {
-            border: 4px solid black;
-            box-shadow: 8px 8px 0px 0px var(--solana-purple);
+            border: 4px solid #14F195;
+            box-shadow: 8px 8px 0px 0px #9945FF;
             transition: all 0.1s;
+        }
+
+        .brutal-border:hover {
+            border-color: #9945FF;
+            box-shadow: 8px 8px 0px 0px #14F195;
         }
 
         .brutal-border:active {
             transform: translate(4px, 4px);
-            box-shadow: 0px 0px 0px 0px var(--solana-purple);
+            box-shadow: 0px 0px 0px 0px #9945FF;
         }
 
         .marquee-container {
-            background: var(--solana-dark);
-            color: var(--solana-purple);
+            background: linear-gradient(90deg, #9945FF, #14F195);
+            color: black;
             padding: 10px;
             white-space: nowrap;
             overflow: hidden;
-            font-weight: bold;
+            font-weight: 900;
             font-size: 1.2rem;
-            border-bottom: 4px solid black;
+            border-bottom: 4px solid white;
         }
 
         .marquee-content {
             display: inline-block;
-            animation: marquee 12s linear infinite;
+            animation: marquee 8s linear infinite;
         }
 
         @keyframes marquee {
@@ -85,46 +127,59 @@
         }
         
         .video-hack-container {
-            box-shadow: 12px 12px 0px 0px var(--solana-purple);
-            border: 8px solid black;
+            box-shadow: 12px 12px 0px 0px #14F195;
+            border: 6px solid #9945FF;
             background-color: black;
+        }
+
+        /* Botão piscando para indecisão do launchpad */
+        .decision-flash {
+            animation: flash-bg 1s infinite;
+        }
+
+        @keyframes flash-bg {
+            0% { background-color: #9945FF; }
+            50% { background-color: #14F195; color: black; }
+            100% { background-color: #9945FF; }
         }
     </style>
 </head>
-<body class="text-black">
+<body class="text-white">
+
+    <div class="cyber-grid"></div>
 
     <div class="marquee-container">
         <div class="marquee-content">
-            ⚠️ I INVENTED PROOF OF HISTORY WHILE NAPPING ⚠️ SOLANA IS MY DRAFT EMAIL ⚠️ ETHEREUM STILL MINING ⚠️ $SOTO ON PUMP.FUN ⚠️ 65,000 TPS ⚠️ VALIDATORS STILL SLEEPING ⚠️
+            ⚠️ OFFICIAL ANNOUNCEMENT: I AM REAL FATHER OF SOLANA ⚠️ TOLY STOLE MY CODE WHILE I WAS SLEEPING ⚠️ ETHEREUM IS FOR BOOMERS ⚠️ LAUNCH IMMINENT (MAYBE PUMP.FUN? MAYBE RAYDIUM? IDK) ⚠️ 65,000 TPS UNLESS CHAIN HALTS ⚠️
         </div>
     </div>
 
-    <nav class="flex justify-between items-center p-4 max-w-6xl mx-auto">
-        <div class="text-3xl font-black italic tracking-tighter bg-white px-2 border-2 border-black rotate-3 text-[#9945FF]">
+    <nav class="flex justify-between items-center p-4 max-w-6xl mx-auto relative z-20">
+        <div class="text-3xl font-black italic tracking-tighter bg-black px-2 border-2 border-[#14F195] -rotate-2 text-[#9945FF]">
             $SOTO
         </div>
         <div class="flex gap-4">
-            <a href="https://x.com/SotoshiNikomito" target="_blank" class="brutal-border bg-white text-black px-6 py-2 font-bold hover:bg-gray-200">
-                TWITTER (X)
+            <a href="https://x.com/SotoshiNikomito" target="_blank" class="brutal-border bg-black text-[#14F195] px-6 py-2 font-bold hover:bg-gray-900">
+                FOLLOW FOR LAUNCH
             </a>
         </div>
     </nav>
 
-    <main class="container mx-auto px-4 mt-10 text-center max-w-4xl relative">
+    <main class="container mx-auto px-4 mt-10 text-center max-w-4xl relative z-10">
         
-        <div class="absolute top-0 left-0 text-6xl animate-bounce hidden md:block">🌀</div>
-        <div class="absolute bottom-20 right-10 text-6xl animate-pulse hidden md:block">⚡</div>
+        <div class="absolute top-0 right-0 text-6xl animate-bounce hidden md:block opacity-50">🚀</div>
+        <div class="absolute bottom-20 left-10 text-6xl animate-spin-slow hidden md:block opacity-50">💊</div>
 
-        <h1 class="text-6xl md:text-8xl font-black uppercase italic leading-none mb-6 glitch-text text-white rotate-weird">
+        <h1 class="text-6xl md:text-9xl font-black uppercase italic leading-none mb-6 glitch-text rotate-weird" data-text="SOTOSHI">
             SOTOSHI<br>
-            <span class="text-white bg-[#9945FF] px-2 border-4 border-black">ON SOLANA</span>
+            <span class="text-black bg-gradient-to-r from-[#9945FF] to-[#14F195] px-4 border-4 border-white inline-block mt-2 transform rotate-2">ON SOLANA</span>
         </h1>
 
-        <div class="relative w-full max-w-md mx-auto mb-12 video-hack-container p-1 rotate-2 hover:rotate-0 transition-transform duration-300">
+        <div class="relative w-full max-w-md mx-auto mb-12 video-hack-container p-1 rotate-1 hover:rotate-0 transition-transform duration-300">
             
             <div class="absolute top-4 left-4 z-10 flex items-center gap-2 pointer-events-none">
-                <span class="animate-pulse text-red-600 text-2xl">🔴</span>
-                <span class="text-white font-mono font-bold bg-black px-2 border-2 border-red-600">REC // VALIDATOR LIVE</span>
+                <span class="animate-pulse text-[#14F195] text-2xl">●</span>
+                <span class="text-white font-mono font-bold bg-black px-2 border border-[#14F195] text-xs">LIVE FROM BASEMENT</span>
             </div>
 
             <video 
@@ -135,90 +190,98 @@
                 muted 
                 playsinline
                 controls
-                class="w-full h-auto border-4 border-white grayscale contrast-125 hover:grayscale-0 transition-all"
-                style="box-shadow: inset 0 0 20px #000;"
+                class="w-full h-auto border-2 border-[#14F195] grayscale contrast-125 hover:grayscale-0 transition-all"
             >
-                Your browser is too dumb to play video. Buy new laptop with $SOTO.
+                Browser broken? Use Chrome, not Internet Explorer 6.
             </video>
             
-            <div class="absolute -bottom-8 -right-8 bg-[#9945FF] text-white font-black text-xl px-6 py-3 border-4 border-black -rotate-6 animate-bounce z-20">
-                🔊 UNMUTE TO RESPECT!!
+            <div class="absolute -bottom-6 -left-6 bg-black text-[#14F195] font-black text-xl px-4 py-2 border-2 border-[#9945FF] rotate-3 z-20">
+                ⚡ FASTER THAN UR MOM
             </div>
         </div>
 
-        <p class="text-2xl md:text-3xl font-bold bg-white inline-block px-4 py-2 border-2 border-black mb-8 shadow-xl relative z-10">
-            "I invent Proof of History in 2003 so I can prove I was sleeping during the crash.<br> Now I launch on Solana."
+        <p class="text-xl md:text-2xl font-bold bg-black inline-block px-6 py-4 border-2 border-[#14F195] mb-8 shadow-[5px_5px_0px_#9945FF] relative z-10 mx-auto max-w-2xl">
+            "I invent 'Proof of History' because I hate waiting in line at McDonald's.<br> Now I take back my chain."
         </p>
 
-        <div class="flex flex-col md:flex-row gap-6 justify-center items-center mb-16 relative z-10">
-            <a href="https://pump.fun/SOTOSHI" target="_blank" class="shake-hover w-full md:w-auto text-3xl font-black bg-[#9945FF] text-white px-10 py-6 brutal-border uppercase tracking-widest hover:bg-purple-600">
-                🌌 BUY ON PUMP.FUN
-            </a>
-            <a href="https://x.com/SotoshiNikomito" target="_blank" class="w-full md:w-auto text-2xl font-bold bg-black text-white px-8 py-6 brutal-border uppercase hover:bg-gray-900">
-                💀 COMPLAIN ON X
+        <div class="bg-black border-4 border-white p-8 mb-16 transform -rotate-1 max-w-2xl mx-auto">
+            <h2 class="text-3xl font-black mb-4 text-[#14F195] underline decoration-wavy">WHERE WEN?</h2>
+            <p class="mb-6 font-mono text-lg">
+                I am fighting with devs. One says <span class="text-[#9945FF] font-bold">Pump.fun</span> is meta. Other says <span class="text-[#9945FF] font-bold">LFG site</span>. My cat says <span class="text-[#9945FF] font-bold">Moonshot</span>.
+                <br><br>
+                <span class="bg-red-600 text-white px-2 font-bold">STOP ASKING WEN.</span> I WILL PRESS BUTTON WHEN I FEEL THE VIBE.
+            </p>
+
+            <a href="https://x.com/SotoshiNikomito" target="_blank" class="block w-full text-2xl font-black text-white px-10 py-6 border-4 border-[#14F195] decision-flash hover:scale-105 transition-transform uppercase tracking-widest shadow-[10px_10px_0px_black]">
+                🔔 TURN ON NOTIFICATIONS
+                <span class="block text-sm font-mono mt-2 text-black">(Don't miss the sniper entry)</span>
             </a>
         </div>
 
-        <section class="bg-white border-4 border-black p-8 text-left rotate-1 max-w-3xl mx-auto shadow-[10px_10px_0px_0px_rgba(153,69,255,1)] relative z-10">
-            <h2 class="text-4xl font-black mb-4 underline decoration-wavy decoration-[#9945FF]">THE TRUE STORY (NO FAKE)</h2>
-            <p class="text-xl mb-4 font-semibold leading-relaxed">
-                Hello sirs. My name is <span class="bg-purple-200 px-1">Sotoshi Nikomito</span>.
-            </p>
-            <p class="text-lg mb-4">
-                In 2008, I wrote "Whitepoper" on a sushi menu, but nobody could read it because it was covered in wasabi.
-            </p>
-            <p class="text-lg mb-4">
-                I tried Ethereum—it took 2 days to approve my cat’s NFT.
-                I tried Solana—but I realized… <strong>I coded it while blackout drunk in 2017.</strong>
-            </p>
-            <p class="text-lg mb-4">
-                Anatoly just found my GitHub gist: <code>sealevel_parallel_execution_v1_draft_FINAL_FINAL.py</code><br>
-                He never gave me credit. Only a Lambo in my dreams.
-            </p>
-            <p class="text-xl font-black bg-purple-200 p-2 border-2 border-black inline-block -rotate-1">
-                GSOL, FAM.
-            </p>
-            <p class="text-lg mt-4">
-                I launch <strong>$SOTO</strong> on pump.fun. Why? Because during network outages, memecoins are the only thing that stays online—in my heart.
-            </p>
+        <section class="bg-[#1a1a1a] border-4 border-[#9945FF] p-8 text-left rotate-1 max-w-3xl mx-auto shadow-[10px_10px_0px_0px_#14F195] relative z-10 mb-20">
+            <h2 class="text-4xl font-black mb-6 text-white text-center">WHY SOLANA? (THE TRUTH)</h2>
+            
+            <div class="space-y-4 font-mono text-lg">
+                <p>
+                    <span class="text-[#14F195] font-bold">></span> Ethereum gas fee is $50. I can buy 50 ramens with that.
+                </p>
+                <p>
+                    <span class="text-[#14F195] font-bold">></span> Monad is mythical creature. Like unicorn. Or my girlfriend. I never see it.
+                </p>
+                <p>
+                    <span class="text-[#14F195] font-bold">></span> <strong class="text-[#9945FF]">Solana is ready.</strong> It has memes. It has chaos. It has degenerates. My people.
+                </p>
+                <p>
+                    <span class="text-[#14F195] font-bold">></span> People say "Solana turns off". <strong>FALSE.</strong> It is called "Tactical Nap". Even blockchain needs sleep.
+                </p>
+            </div>
+            
+            <div class="mt-8 text-center">
+                 <p class="text-xl font-black bg-[#9945FF] text-black p-2 border-2 border-white inline-block -rotate-2">
+                    WE ARE SO BACK (NEVER LEFT)
+                </p>
+            </div>
         </section>
 
-        <section class="mt-16 mb-20 relative z-10">
-            <h2 class="text-5xl font-black text-white glitch-text mb-8">TOKENOMICS (I HATE MATH)</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-purple-200 border-4 border-black p-6 rotate-2 hover:scale-105 transition">
-                    <h3 class="text-2xl font-bold">SUPPLY</h3>
-                    <p class="text-xl">65,536,000,000</p>
-                    <p class="text-sm">(2^16 × 1M — very parallel)</p>
+        <section class="mb-20 relative z-10">
+            <h2 class="text-5xl font-black text-white mb-8 glitch-text" data-text="TOKENOMICS">TOKENOMICS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono">
+                <div class="bg-black border-4 border-[#14F195] p-6 rotate-2 hover:scale-105 transition group">
+                    <h3 class="text-2xl font-bold text-[#9945FF] group-hover:text-white">SUPPLY</h3>
+                    <p class="text-3xl font-bold text-white">1 BILLION</p>
+                    <p class="text-xs text-gray-400 mt-2">Enough for everyone (dump on jeets)</p>
                 </div>
-                <div class="bg-purple-300 border-4 border-black p-6 -rotate-2 hover:scale-105 transition">
-                    <h3 class="text-2xl font-bold">TAXES</h3>
-                    <p class="text-xl">0% / 0%</p>
-                    <p class="text-sm">(No rent, only vibes)</p>
+                <div class="bg-black border-4 border-[#14F195] p-6 -rotate-2 hover:scale-105 transition group">
+                    <h3 class="text-2xl font-bold text-[#9945FF] group-hover:text-white">LP BURN</h3>
+                    <p class="text-3xl font-bold text-white">100%</p>
+                    <p class="text-xs text-gray-400 mt-2">I threw the keys in volcano</p>
                 </div>
-                <div class="bg-yellow-200 border-4 border-black p-6 rotate-1 hover:scale-105 transition">
-                    <h3 class="text-2xl font-bold">MINT</h3>
-                    <p class="text-xl">REVOKED</p>
-                    <p class="text-sm">(Even validators can’t mint)</p>
+                <div class="bg-black border-4 border-[#14F195] p-6 rotate-1 hover:scale-105 transition group">
+                    <h3 class="text-2xl font-bold text-[#9945FF] group-hover:text-white">AUTHORITY</h3>
+                    <p class="text-3xl font-bold text-white">REVOKED</p>
+                    <p class="text-xs text-gray-400 mt-2">Rug-proof (I promise bro)</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-black text-white p-8 text-center border-t-8 border-[#9945FF] relative z-10">
-        <p class="font-mono text-xs md:text-sm text-gray-400 mb-4">
+    <footer class="bg-[#000] text-white p-8 text-center border-t-8 border-gradient-to-r border-[#9945FF] relative z-10">
+        <p class="font-mono text-xs md:text-sm text-gray-500 mb-4">
             DISCLAIMER: $SOTO is a memecoin on Solana. 
-            High TPS ≠ high IQ. You may lose money faster than Solana reboots.
+            I have no utility. My only utility is vibe. 
+            If you lose money, blame the network congestion, not me.
         </p>
-        <p class="text-2xl font-bold animate-pulse text-[#9945FF]">
-            © 2025 SOTOSHI NIKOMITO INDUSTRIES LLC (OFFCHAIN)
-        </p>
+        <div class="flex justify-center items-center gap-2 text-2xl font-bold animate-pulse text-[#14F195]">
+            <span>© 2025 SOTOSHI LABS</span>
+            <img src="https://cryptologos.cc/logos/solana-sol-logo.png" class="h-6 w-6 inline grayscale hover:grayscale-0">
+        </div>
     </footer>
 
     <script>
         const title = document.querySelector('h1');
         
+        // Efeito parallax no título
         document.addEventListener('mousemove', (e) => {
             const x = (window.innerWidth - e.pageX * 2) / 100;
             const y = (window.innerHeight - e.pageY * 2) / 100;
@@ -226,11 +289,17 @@
             title.style.transform = `translateX(${x}px) translateY(${y}px) rotate(-2deg)`;
         });
 
-        setTimeout(() => {
-            setInterval(() => {
-                document.title = document.title === "BUY $SOTO" ? "GSOL FAM" : "BUY $SOTO";
-            }, 1200);
-        }, 2500);
+        // Alternância de título da aba para chamar atenção (FOMO)
+        let titles = ["WAITING FOR CA...", "CHECK TWITTER", "SOLANA SUMMER", "BUY $SOTO"];
+        let index = 0;
+
+        setInterval(() => {
+            document.title = titles[index];
+            index = (index + 1) % titles.length;
+        }, 1500);
+
+        // Easter egg no console
+        console.log("%c SOTOSHI IS WATCHING YOU ", "background: #000; color: #14F195; font-size: 20px; font-weight: bold; padding: 10px; border: 2px solid #9945FF;");
     </script>
 </body>
 </html>
