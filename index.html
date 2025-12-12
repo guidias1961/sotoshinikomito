@@ -3,303 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOTOSHI NIKOMITO - THE REAL CREATOR OF SOLANA</title>
+    <title>SOTOSHI NIKOMITO - ARCHITECT OF SOLANA</title>
     <link rel="icon" type="image/png" href="logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=JetBrains+Mono:wght@400;800&display=swap');
 
         :root {
             --solana-purple: #9945FF;
             --solana-green: #14F195;
-            --solana-dark: #000000;
-            --bg-color: #1a1a1a;
+            --bg-dark: #050505;
+            --grid-color: #1a1a1a;
         }
 
         body {
-            font-family: 'Comic Sans MS', 'Comic Neue', sans-serif;
-            background-color: var(--bg-color);
-            /* Gradiente Solana Caótico */
-            background-image: linear-gradient(45deg, #000000 25%, transparent 25%, transparent 75%, #000000 75%, #000000),
-                              linear-gradient(45deg, #000000 25%, transparent 25%, transparent 75%, #000000 75%, #000000);
-            background-position: 0 0, 10px 10px;
-            background-size: 20px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--bg-dark);
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center top;
+            color: #ffffff;
             overflow-x: hidden;
-            cursor: crosshair;
-            color: #14F195;
         }
 
-        /* Efeito de grade cyberpunk barato */
-        .cyber-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: 
-                linear-gradient(rgba(20, 241, 149, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(153, 69, 255, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-            pointer-events: none;
+        /* Comic font only for emphasis/trolling */
+        .comic-font {
+            font-family: 'Comic Sans MS', 'Comic Neue', cursive;
         }
 
-        .shake-constant {
-            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) infinite;
-        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--solana-green); border: 2px solid black; }
 
-        .shake-hover:hover {
-            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) infinite;
-        }
-
-        @keyframes shake {
-            10%, 90% { transform: translate3d(-1px, 0, 0) rotate(-1deg); }
-            20%, 80% { transform: translate3d(2px, 0, 0) rotate(2deg); }
-            30%, 50%, 70% { transform: translate3d(-4px, 0, 0) rotate(-4deg); }
-            40%, 60% { transform: translate3d(4px, 0, 0) rotate(4deg); }
-        }
-
-        .glitch-text {
-            text-shadow: 4px 4px 0px #9945FF;
+        /* Glitch Effect - More Tech, Less Noise */
+        .glitch-title {
             position: relative;
+            animation: glitch-skew 4s infinite linear alternate-reverse;
         }
-        
-        .glitch-text::before {
+        .glitch-title::before {
             content: attr(data-text);
             position: absolute;
             left: -2px;
-            text-shadow: 1px 0 #14F195;
+            text-shadow: 2px 0 var(--solana-green);
             top: 0;
-            color: white;
-            background: black;
             overflow: hidden;
-            clip: rect(0, 900px, 0, 0); 
-            animation: noise-anim-2 3s infinite linear alternate-reverse;
+            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+        .glitch-title::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px;
+            text-shadow: -2px 0 var(--solana-purple);
+            top: 0;
+            overflow: hidden;
+            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+            animation: glitch-anim 3s infinite linear alternate-reverse;
         }
 
-        @keyframes noise-anim-2 {
-            0% { clip: rect(12px, 9999px, 5px, 0); }
-            5% { clip: rect(28px, 9999px, 80px, 0); }
-            10% { clip: rect(2px, 9999px, 10px, 0); }
-            100% { clip: rect(0, 0, 0, 0); }
+        @keyframes glitch-anim {
+            0% { clip-path: inset(10% 0 80% 0); transform: translate(-2px, 1px); }
+            20% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -1px); }
+            40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+            100% { clip-path: inset(10% 0 60% 0); transform: translate(1px, -1px); }
         }
 
-        .brutal-border {
-            border: 4px solid #14F195;
-            box-shadow: 8px 8px 0px 0px #9945FF;
-            transition: all 0.1s;
+        /* Brutalist Box */
+        .neo-box {
+            background: #000;
+            border: 2px solid var(--solana-green);
+            box-shadow: 6px 6px 0px var(--solana-purple);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+        .neo-box:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px var(--solana-purple);
+        }
+        .neo-box:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--solana-purple);
         }
 
-        .brutal-border:hover {
-            border-color: #9945FF;
-            box-shadow: 8px 8px 0px 0px #14F195;
-        }
-
-        .brutal-border:active {
-            transform: translate(4px, 4px);
-            box-shadow: 0px 0px 0px 0px #9945FF;
-        }
-
-        .marquee-container {
-            background: linear-gradient(90deg, #9945FF, #14F195);
+        /* Marquee */
+        .marquee-wrapper {
+            background: var(--solana-green);
             color: black;
-            padding: 10px;
-            white-space: nowrap;
+            border-bottom: 2px solid var(--solana-purple);
+            padding: 8px 0;
+            font-weight: 800;
             overflow: hidden;
-            font-weight: 900;
-            font-size: 1.2rem;
-            border-bottom: 4px solid white;
+            position: relative;
+            z-index: 50;
         }
-
         .marquee-content {
             display: inline-block;
-            animation: marquee 8s linear infinite;
+            white-space: nowrap;
+            animation: scroll 20s linear infinite;
         }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        @keyframes marquee {
-            0% { transform: translateX(100vw); }
-            100% { transform: translateX(-100%); }
-        }
+        /* Blink Animation for cursor/undecided elements */
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
 
-        .rotate-weird {
-            transform: rotate(-2deg);
+        /* Terminal Window Styling */
+        .terminal-window {
+            border: 2px solid #333;
+            background: #000;
+            box-shadow: 0 0 20px rgba(153, 69, 255, 0.2);
         }
-        
-        .video-hack-container {
-            box-shadow: 12px 12px 0px 0px #14F195;
-            border: 6px solid #9945FF;
-            background-color: black;
+        .terminal-header {
+            background: #333;
+            padding: 5px 10px;
+            display: flex;
+            gap: 6px;
         }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-r { background: #ff5f56; }
+        .dot-y { background: #ffbd2e; }
+        .dot-g { background: #27c93f; }
 
-        /* Botão piscando para indecisão do launchpad */
-        .decision-flash {
-            animation: flash-bg 1s infinite;
-        }
-
-        @keyframes flash-bg {
-            0% { background-color: #9945FF; }
-            50% { background-color: #14F195; color: black; }
-            100% { background-color: #9945FF; }
+        .ascii-art {
+            font-size: 10px;
+            line-height: 10px;
+            white-space: pre;
+            overflow-x: hidden;
+            opacity: 0.3;
+            position: absolute;
+            pointer-events: none;
+            color: var(--solana-green);
         }
     </style>
 </head>
-<body class="text-white">
+<body class="min-h-screen flex flex-col">
 
-    <div class="cyber-grid"></div>
+    <div class="ascii-art top-20 left-4 hidden md:block">
+   __
+ _/o \_
+( \_  /
+/ / \ \
+\_) (_/
+    </div>
 
-    <div class="marquee-container">
+    <div class="marquee-wrapper">
         <div class="marquee-content">
-            ⚠️ OFFICIAL ANNOUNCEMENT: I AM REAL FATHER OF SOLANA ⚠️ TOLY STOLE MY CODE WHILE I WAS SLEEPING ⚠️ ETHEREUM IS FOR BOOMERS ⚠️ LAUNCH IMMINENT (MAYBE PUMP.FUN? MAYBE RAYDIUM? IDK) ⚠️ 65,000 TPS UNLESS CHAIN HALTS ⚠️
+            /// SYSTEM ALERT: SOTOSHI NIKOMITO DETECTED /// CREATOR OF PROOF-OF-HISTORY /// SOLANA IS MY CHILD /// WEN LAUNCH? COMPUTING... /// DO NOT TRUST TOLY /// 65,000 TPS /// SYSTEM ALERT: SOTOSHI NIKOMITO DETECTED /// CREATOR OF PROOF-OF-HISTORY /// SOLANA IS MY CHILD /// WEN LAUNCH? COMPUTING... /// DO NOT TRUST TOLY /// 65,000 TPS ///
         </div>
     </div>
 
-    <nav class="flex justify-between items-center p-4 max-w-6xl mx-auto relative z-20">
-        <div class="text-3xl font-black italic tracking-tighter bg-black px-2 border-2 border-[#14F195] -rotate-2 text-[#9945FF]">
-            $SOTO
+    <nav class="container mx-auto p-6 flex justify-between items-center z-20 relative">
+        <div class="text-2xl font-black tracking-tighter text-white border-b-4 border-[#9945FF] pb-1">
+            <span class="text-[#14F195]">&lt;</span>SOTOSHI<span class="text-[#14F195]">/&gt;</span>
         </div>
-        <div class="flex gap-4">
-            <a href="https://x.com/SotoshiNikomito" target="_blank" class="brutal-border bg-black text-[#14F195] px-6 py-2 font-bold hover:bg-gray-900">
-                FOLLOW FOR LAUNCH
-            </a>
-        </div>
+        <a href="https://x.com/SotoshiNikomito" target="_blank" class="neo-box px-6 py-2 text-[#14F195] font-bold hover:bg-[#111] hover:text-white transition-colors">
+            [X] TWITTER
+        </a>
     </nav>
 
-    <main class="container mx-auto px-4 mt-10 text-center max-w-4xl relative z-10">
-        
-        <div class="absolute top-0 right-0 text-6xl animate-bounce hidden md:block opacity-50">🚀</div>
-        <div class="absolute bottom-20 left-10 text-6xl animate-spin-slow hidden md:block opacity-50">💊</div>
+    <main class="flex-grow container mx-auto px-4 mt-8 flex flex-col items-center relative z-10">
 
-        <h1 class="text-6xl md:text-9xl font-black uppercase italic leading-none mb-6 glitch-text rotate-weird" data-text="SOTOSHI">
-            SOTOSHI<br>
-            <span class="text-black bg-gradient-to-r from-[#9945FF] to-[#14F195] px-4 border-4 border-white inline-block mt-2 transform rotate-2">ON SOLANA</span>
-        </h1>
-
-        <div class="relative w-full max-w-md mx-auto mb-12 video-hack-container p-1 rotate-1 hover:rotate-0 transition-transform duration-300">
-            
-            <div class="absolute top-4 left-4 z-10 flex items-center gap-2 pointer-events-none">
-                <span class="animate-pulse text-[#14F195] text-2xl">●</span>
-                <span class="text-white font-mono font-bold bg-black px-2 border border-[#14F195] text-xs">LIVE FROM BASEMENT</span>
-            </div>
-
-            <video 
-                src="1.mp4" 
-                poster="logo.png"
-                autoplay 
-                loop 
-                muted 
-                playsinline
-                controls
-                class="w-full h-auto border-2 border-[#14F195] grayscale contrast-125 hover:grayscale-0 transition-all"
-            >
-                Browser broken? Use Chrome, not Internet Explorer 6.
-            </video>
-            
-            <div class="absolute -bottom-6 -left-6 bg-black text-[#14F195] font-black text-xl px-4 py-2 border-2 border-[#9945FF] rotate-3 z-20">
-                ⚡ FASTER THAN UR MOM
-            </div>
-        </div>
-
-        <p class="text-xl md:text-2xl font-bold bg-black inline-block px-6 py-4 border-2 border-[#14F195] mb-8 shadow-[5px_5px_0px_#9945FF] relative z-10 mx-auto max-w-2xl">
-            "I invent 'Proof of History' because I hate waiting in line at McDonald's.<br> Now I take back my chain."
-        </p>
-
-        <div class="bg-black border-4 border-white p-8 mb-16 transform -rotate-1 max-w-2xl mx-auto">
-            <h2 class="text-3xl font-black mb-4 text-[#14F195] underline decoration-wavy">WHERE WEN?</h2>
-            <p class="mb-6 font-mono text-lg">
-                I am fighting with devs. One says <span class="text-[#9945FF] font-bold">Pump.fun</span> is meta. Other says <span class="text-[#9945FF] font-bold">LFG site</span>. My cat says <span class="text-[#9945FF] font-bold">Moonshot</span>.
-                <br><br>
-                <span class="bg-red-600 text-white px-2 font-bold">STOP ASKING WEN.</span> I WILL PRESS BUTTON WHEN I FEEL THE VIBE.
+        <div class="text-center mb-12 relative">
+            <p class="text-[#9945FF] font-bold mb-2 tracking-widest text-sm md:text-base">
+                // COMPILING GENESIS_BLOCK...
             </p>
-
-            <a href="https://x.com/SotoshiNikomito" target="_blank" class="block w-full text-2xl font-black text-white px-10 py-6 border-4 border-[#14F195] decision-flash hover:scale-105 transition-transform uppercase tracking-widest shadow-[10px_10px_0px_black]">
-                🔔 TURN ON NOTIFICATIONS
-                <span class="block text-sm font-mono mt-2 text-black">(Don't miss the sniper entry)</span>
-            </a>
+            <h1 class="text-5xl md:text-8xl font-black uppercase italic leading-none glitch-title" data-text="SOTOSHI">
+                SOTOSHI
+            </h1>
+            <h2 class="text-3xl md:text-6xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#14F195] to-[#9945FF]">
+                IS OPTIMIZING
+            </h2>
+            <div class="mt-4 inline-block bg-[#14F195] text-black px-2 py-1 font-bold transform -rotate-2 comic-font text-sm md:text-lg">
+                "Real CEO of Solana"
+            </div>
         </div>
 
-        <section class="bg-[#1a1a1a] border-4 border-[#9945FF] p-8 text-left rotate-1 max-w-3xl mx-auto shadow-[10px_10px_0px_0px_#14F195] relative z-10 mb-20">
-            <h2 class="text-4xl font-black mb-6 text-white text-center">WHY SOLANA? (THE TRUTH)</h2>
-            
-            <div class="space-y-4 font-mono text-lg">
-                <p>
-                    <span class="text-[#14F195] font-bold">></span> Ethereum gas fee is $50. I can buy 50 ramens with that.
-                </p>
-                <p>
-                    <span class="text-[#14F195] font-bold">></span> Monad is mythical creature. Like unicorn. Or my girlfriend. I never see it.
-                </p>
-                <p>
-                    <span class="text-[#14F195] font-bold">></span> <strong class="text-[#9945FF]">Solana is ready.</strong> It has memes. It has chaos. It has degenerates. My people.
-                </p>
-                <p>
-                    <span class="text-[#14F195] font-bold">></span> People say "Solana turns off". <strong>FALSE.</strong> It is called "Tactical Nap". Even blockchain needs sleep.
-                </p>
+        <div class="w-full max-w-2xl terminal-window mb-16">
+            <div class="terminal-header">
+                <div class="dot dot-r"></div>
+                <div class="dot dot-y"></div>
+                <div class="dot dot-g"></div>
+                <span class="ml-2 text-xs text-gray-400 font-mono">user@sotoshi:~/leaked_footage.mp4</span>
             </div>
-            
-            <div class="mt-8 text-center">
-                 <p class="text-xl font-black bg-[#9945FF] text-black p-2 border-2 border-white inline-block -rotate-2">
-                    WE ARE SO BACK (NEVER LEFT)
-                </p>
+            <div class="relative group">
+                <div class="absolute top-4 left-4 z-10 flex items-center gap-2 pointer-events-none">
+                    <div class="w-3 h-3 bg-red-500 rounded-full blink"></div>
+                    <span class="text-red-500 font-bold text-xs tracking-wider">LIVE_FEED</span>
+                </div>
+                
+                <video 
+                    src="1.mp4" 
+                    poster="logo.png"
+                    autoplay loop muted playsinline controls
+                    class="w-full h-auto border-b border-[#333] grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500"
+                ></video>
+                
+                <div class="p-4 bg-black border-t border-[#333]">
+                    <p class="text-[#14F195] text-xs md:text-sm font-mono">
+                        <span class="text-[#9945FF]">root@sotoshi:~$</span> echo "Proof of History was my idea. Toly is just frontend dev."
+                    </p>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <section class="mb-20 relative z-10">
-            <h2 class="text-5xl font-black text-white mb-8 glitch-text" data-text="TOKENOMICS">TOKENOMICS</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-mono">
-                <div class="bg-black border-4 border-[#14F195] p-6 rotate-2 hover:scale-105 transition group">
-                    <h3 class="text-2xl font-bold text-[#9945FF] group-hover:text-white">SUPPLY</h3>
-                    <p class="text-3xl font-bold text-white">1 BILLION</p>
-                    <p class="text-xs text-gray-400 mt-2">Enough for everyone (dump on jeets)</p>
+        <div class="w-full max-w-3xl mb-20 relative">
+            <div class="absolute -top-10 left-1/2 w-px h-10 bg-[#14F195]"></div>
+
+            <div class="bg-[#0a0a0a] border-2 border-[#14F195] p-1 relative overflow-hidden">
+                <div class="absolute top-0 left-0 bg-[#14F195] px-2 py-0.5 text-black text-xs font-bold">
+                    SYSTEM_PROCESS: LAUNCH_PROTOCOL
                 </div>
-                <div class="bg-black border-4 border-[#14F195] p-6 -rotate-2 hover:scale-105 transition group">
-                    <h3 class="text-2xl font-bold text-[#9945FF] group-hover:text-white">LP BURN</h3>
-                    <p class="text-3xl font-bold text-white">100%</p>
-                    <p class="text-xs text-gray-400 mt-2">I threw the keys in volcano</p>
-                </div>
-                <div class="bg-black border-4 border-[#14F195] p-6 rotate-1 hover:scale-105 transition group">
-                    <h3 class="text-2xl font-bold text-[#9945FF] group-hover:text-white">AUTHORITY</h3>
-                    <p class="text-3xl font-bold text-white">REVOKED</p>
-                    <p class="text-xs text-gray-400 mt-2">Rug-proof (I promise bro)</p>
+                
+                <div class="p-6 md:p-10 border border-[#14F195]/30 mt-4 text-center">
+                    <h3 class="text-2xl md:text-4xl font-bold mb-6 text-white">
+                        SELECTING DEPLOYMENT TARGET<span class="blink">_</span>
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                        <div class="border border-[#333] p-4 text-gray-500 opacity-50 hover:opacity-100 transition cursor-help">
+                            <div class="text-xs uppercase tracking-widest mb-2">CANDIDATE_01</div>
+                            <div class="font-bold text-lg">PUMP.FUN</div>
+                            <div class="text-[10px] mt-2">Bonding Curve Logic</div>
+                        </div>
+                        <div class="border border-[#333] p-4 text-gray-500 opacity-50 hover:opacity-100 transition cursor-help">
+                            <div class="text-xs uppercase tracking-widest mb-2">CANDIDATE_02</div>
+                            <div class="font-bold text-lg">MOONSHOT</div>
+                            <div class="text-[10px] mt-2">High Volatility</div>
+                        </div>
+                        <div class="border border-[#333] p-4 text-gray-500 opacity-50 hover:opacity-100 transition cursor-help">
+                            <div class="text-xs uppercase tracking-widest mb-2">CANDIDATE_03</div>
+                            <div class="font-bold text-lg">RAYDIUM</div>
+                            <div class="text-[10px] mt-2">Legacy Protocol</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#141414] p-4 mb-6 border-l-4 border-yellow-500 text-left">
+                        <p class="text-yellow-500 font-bold text-sm mb-1">⚠️ WARNING: INDECISION DETECTED</p>
+                        <p class="text-gray-400 text-sm comic-font">
+                            "I am fighting with my cat. He wants Moonshot. I want Pump.fun. The blockchain awaits consensus."
+                        </p>
+                    </div>
+
+                    <a href="https://x.com/SotoshiNikomito" target="_blank" class="block w-full neo-box bg-[#14F195] text-black text-xl md:text-2xl font-black py-4 uppercase hover:bg-[#9945FF] hover:text-white transition-all">
+                        WAIT FOR SIGNAL (TWITTER)
+                    </a>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full mb-20">
+            <div class="neo-box p-6 bg-[#000]">
+                <h4 class="text-[#9945FF] font-bold text-xl mb-4 flex items-center gap-2">
+                    <span class="block w-2 h-2 bg-[#9945FF]"></span> 
+                    THE TRUTH
+                </h4>
+                <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                    Solana was not built in a day. It was built in a night, by me, while drinking 12 energy drinks. 
+                </p>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    Now I launch <span class="text-[#14F195]">$SOTO</span> to fix the vibe. No utility. Just pure parallel execution of memes.
+                </p>
+            </div>
+            
+            <div class="neo-box p-6 bg-[#000]">
+                <h4 class="text-[#14F195] font-bold text-xl mb-4 flex items-center gap-2">
+                     <span class="block w-2 h-2 bg-[#14F195]"></span>
+                    TOKEN_DATA
+                </h4>
+                <ul class="space-y-3 font-mono text-sm text-gray-300">
+                    <li class="flex justify-between border-b border-[#333] pb-1">
+                        <span>SUPPLY:</span>
+                        <span class="text-white">1,000,000,000</span>
+                    </li>
+                    <li class="flex justify-between border-b border-[#333] pb-1">
+                        <span>TAX:</span>
+                        <span class="text-white">0/0</span>
+                    </li>
+                    <li class="flex justify-between border-b border-[#333] pb-1">
+                        <span>MINT:</span>
+                        <span class="text-[#9945FF]">REVOKED</span>
+                    </li>
+                    <li class="flex justify-between pt-1">
+                        <span>LIQUIDITY:</span>
+                        <span class="text-[#14F195]">BURNED (SOON)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
     </main>
 
-    <footer class="bg-[#000] text-white p-8 text-center border-t-8 border-gradient-to-r border-[#9945FF] relative z-10">
-        <p class="font-mono text-xs md:text-sm text-gray-500 mb-4">
-            DISCLAIMER: $SOTO is a memecoin on Solana. 
-            I have no utility. My only utility is vibe. 
-            If you lose money, blame the network congestion, not me.
-        </p>
-        <div class="flex justify-center items-center gap-2 text-2xl font-bold animate-pulse text-[#14F195]">
-            <span>© 2025 SOTOSHI LABS</span>
-            <img src="https://cryptologos.cc/logos/solana-sol-logo.png" class="h-6 w-6 inline grayscale hover:grayscale-0">
+    <footer class="border-t border-[#333] bg-black py-8 mt-auto relative z-10">
+        <div class="container mx-auto px-4 flex flex-col items-center">
+            
+            <svg class="w-10 h-10 mb-4" viewBox="0 0 397 313" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M64.6 237.9c-2.4-2.4-5.7-3.8-9.2-3.8H3.1c-2.6 0-4.3 2.5-3.3 4.9l27.1 66.8c1.3 3.3 4.5 5.4 8.1 5.4h306.6c3.5 0 6.8-1.4 9.2-3.8l52.3-52.3c2.4-2.4 2.4-6.3 0-8.7l-27.1-27.1c-2.4-2.4-5.7-3.8-9.2-3.8H64.6z" fill="url(#paint0_linear)"/>
+                <path d="M64.6 3.8C62.2 1.4 58.9 0 55.4 0H3.1C.5 0-1.2 2.5-.2 4.9l27.1 66.8c1.3 3.3 4.5 5.4 8.1 5.4h306.6c3.5 0 6.8-1.4 9.2-3.8l52.3-52.3c2.4-2.4 2.4-6.3 0-8.7L376 5.2c-2.4-2.4-5.7-3.8-9.2-3.8H64.6z" fill="url(#paint1_linear)"/>
+                <path d="M333.1 120.1c2.4 2.4 5.7 3.8 9.2 3.8h52.3c2.6 0 4.3-2.5 3.3-4.9l-27.1-66.8c-1.3-3.3-4.5-5.4-8.1-5.4H56.1c-3.5 0-6.8 1.4-9.2 3.8L-5.4 103c-2.4 2.4-2.4 6.3 0 8.7l27.1 27.1c2.4 2.4 5.7 3.8 9.2 3.8h292.9c3.5 0 6.8-1.4 9.2-3.8l-.9-18.7z" fill="url(#paint2_linear)"/>
+                <defs>
+                    <linearGradient id="paint0_linear" x1="56.7" y1="311.2" x2="385.8" y2="242" gradientUnits="userSpaceOnUse"><stop stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/></linearGradient>
+                    <linearGradient id="paint1_linear" x1="56.7" y1="77.2" x2="385.8" y2="8" gradientUnits="userSpaceOnUse"><stop stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/></linearGradient>
+                    <linearGradient id="paint2_linear" x1="341" y1="46.9" x2="11.9" y2="116.1" gradientUnits="userSpaceOnUse"><stop stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/></linearGradient>
+                </defs>
+            </svg>
+
+            <p class="text-[#14F195] font-bold tracking-widest text-sm text-center">
+                © 2025 SOTOSHI NIKOMITO FOUNDATION
+            </p>
+            <p class="text-gray-600 text-[10px] mt-2 max-w-md text-center">
+                $SOTO is a memecoin. There is no roadmap. The roadmap is in my head and I lost the key.
+            </p>
         </div>
     </footer>
 
     <script>
-        const title = document.querySelector('h1');
+        // Smooth random glitch effect timing
+        const title = document.querySelector('.glitch-title');
         
-        // Efeito parallax no título
-        document.addEventListener('mousemove', (e) => {
-            const x = (window.innerWidth - e.pageX * 2) / 100;
-            const y = (window.innerHeight - e.pageY * 2) / 100;
-            
-            title.style.transform = `translateX(${x}px) translateY(${y}px) rotate(-2deg)`;
-        });
-
-        // Alternância de título da aba para chamar atenção (FOMO)
-        let titles = ["WAITING FOR CA...", "CHECK TWITTER", "SOLANA SUMMER", "BUY $SOTO"];
-        let index = 0;
-
         setInterval(() => {
-            document.title = titles[index];
-            index = (index + 1) % titles.length;
-        }, 1500);
+            if(Math.random() > 0.9) {
+                title.style.transform = `translate(${Math.random()*4 - 2}px, ${Math.random()*4 - 2}px)`;
+                setTimeout(() => title.style.transform = 'none', 100);
+            }
+        }, 200);
 
-        // Easter egg no console
-        console.log("%c SOTOSHI IS WATCHING YOU ", "background: #000; color: #14F195; font-size: 20px; font-weight: bold; padding: 10px; border: 2px solid #9945FF;");
+        // Dynamic Title
+        let titleText = ["LOADING...", "WEN LAUNCH?", "SOTOSHI", "SOLANA"];
+        let i = 0;
+        setInterval(() => {
+            document.title = `[ ${titleText[i]} ]`;
+            i = (i + 1) % titleText.length;
+        }, 2000);
+
+        console.log("%c SYSTEM SECURE. TOLY BLOCKED. ", "background: #000; color: #14F195; font-size: 14px; padding: 10px; border: 2px solid #9945FF;");
     </script>
 </body>
 </html>
