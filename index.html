@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOTOSHI NIKOMITO - RED CHAIN MODE</title>
+    <title>SOTOSHI NIKOMITO - BLUE CHAIN MODE</title>
     <link rel="icon" type="image/png" href="logo.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,9 +11,9 @@
         @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=JetBrains+Mono:wght@400;800&display=swap');
 
         :root {
-            /* AVALANCHE PALETTE */
-            --avax-red: #E84142;
-            --avax-dark: #1F1F1F;
+            /* TON PALETTE */
+            --ton-blue: #0098EA;
+            --ton-dark: #1F1F1F;
             --pure-white: #FFFFFF;
             --bg-black: #000000;
             --grid-color: #333333;
@@ -37,9 +37,9 @@
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: var(--avax-red); border: 2px solid black; }
+        ::-webkit-scrollbar-thumb { background: var(--ton-blue); border: 2px solid black; }
 
-        /* Glitch Effect - RED MODE */
+        /* Glitch Effect - BLUE MODE */
         .glitch-title {
             position: relative;
             animation: glitch-skew 4s infinite linear alternate-reverse;
@@ -58,7 +58,7 @@
             content: attr(data-text);
             position: absolute;
             left: 2px;
-            text-shadow: -2px 0 var(--avax-red);
+            text-shadow: -2px 0 var(--ton-blue);
             top: 0;
             overflow: hidden;
             clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
@@ -72,25 +72,25 @@
             100% { clip-path: inset(10% 0 60% 0); transform: translate(1px, -1px); }
         }
 
-        /* Brutalist Box - AVAX STYLE */
+        /* Brutalist Box - TON STYLE */
         .neo-box {
             background: #000;
-            border: 2px solid var(--avax-red);
-            box-shadow: 6px 6px 0px #444;
+            border: 2px solid var(--ton-blue);
+            box-shadow: 6px 6px 0px #223344;
             transition: transform 0.1s, box-shadow 0.1s;
         }
         .neo-box:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 8px 8px 0px var(--avax-red);
+            box-shadow: 8px 8px 0px var(--ton-blue);
         }
         .neo-box:active {
             transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px var(--avax-red);
+            box-shadow: 2px 2px 0px var(--ton-blue);
         }
 
         /* Marquee */
         .marquee-wrapper {
-            background: var(--avax-red);
+            background: var(--ton-blue);
             color: white;
             border-bottom: 2px solid white;
             padding: 8px 0;
@@ -114,7 +114,7 @@
         .terminal-window {
             border: 2px solid #555;
             background: #111;
-            box-shadow: 0 0 20px rgba(232, 65, 66, 0.2);
+            box-shadow: 0 0 20px rgba(0, 152, 234, 0.2);
         }
         .terminal-header {
             background: #333;
@@ -135,7 +135,7 @@
             opacity: 0.2;
             position: absolute;
             pointer-events: none;
-            color: var(--avax-red);
+            color: var(--ton-blue);
         }
     </style>
 </head>
@@ -163,15 +163,15 @@
 
     <div class="marquee-wrapper">
         <div class="marquee-content">
-            /// SYSTEM ALERT: SOTOSHI NIKOMITO IS BACK /// SUB-SECOND FINALITY ACHIEVED /// ORANGE COIN IS TOO SLOW /// ARENA.TRADE IS THE NEW BATTLEGROUND /// AVALANCHE CONSENSUS ACTIVATED /// RED PILL THE BLOCKCHAIN /// SYSTEM ALERT: SOTOSHI NIKOMITO IS BACK ///
+            /// SYSTEM ALERT: SOTOSHI NIKOMITO IS BACK /// INFINITE SHARDING ENABLED /// ORANGE COIN IS TOO SLOW /// STONKS.PUMP IS THE NEW BATTLEGROUND /// TELEGRAM INTEGRATION ACTIVATED /// BLUE PILL THE BLOCKCHAIN /// SYSTEM ALERT: SOTOSHI NIKOMITO IS BACK ///
         </div>
     </div>
 
     <nav class="container mx-auto p-6 flex justify-between items-center z-20 relative">
-        <div class="text-2xl font-black tracking-tighter text-white border-b-4 border-[#E84142] pb-1">
-            <span class="text-[#E84142]">&lt;</span>SOTOSHI<span class="text-[#E84142]">/&gt;</span>
+        <div class="text-2xl font-black tracking-tighter text-white border-b-4 border-[#0098EA] pb-1">
+            <span class="text-[#0098EA]">&lt;</span>SOTOSHI<span class="text-[#0098EA]">/&gt;</span>
         </div>
-        <a href="https://x.com/SotoshiNikomito" target="_blank" class="neo-box px-6 py-2 text-[#E84142] font-bold hover:bg-[#E84142] hover:text-white transition-colors">
+        <a href="https://x.com/SotoshiNikomito" target="_blank" class="neo-box px-6 py-2 text-[#0098EA] font-bold hover:bg-[#0098EA] hover:text-white transition-colors">
             X
         </a>
     </nav>
@@ -179,16 +179,16 @@
     <main class="flex-grow container mx-auto px-4 mt-8 flex flex-col items-center relative z-10">
 
         <div class="text-center mb-12 relative">
-            <p class="text-[#E84142] font-bold mb-2 tracking-widest text-sm md:text-base">
-                // MIGRATING TO SUBNET...
+            <p class="text-[#0098EA] font-bold mb-2 tracking-widest text-sm md:text-base">
+                // MIGRATING TO SHARDCHAIN...
             </p>
             <h1 class="text-5xl md:text-8xl font-black uppercase italic leading-none glitch-title" data-text="SOTOSHI">
                 SOTOSHI
             </h1>
-            <h2 class="text-3xl md:text-6xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#E84142] to-[#FFF]">
-                GOES RED
+            <h2 class="text-3xl md:text-6xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#0098EA] to-[#FFF]">
+                GOES BLUE
             </h2>
-            <div class="mt-4 inline-block bg-[#E84142] text-white px-2 py-1 font-bold transform -rotate-2 comic-font text-sm md:text-lg">
+            <div class="mt-4 inline-block bg-[#0098EA] text-white px-2 py-1 font-bold transform -rotate-2 comic-font text-sm md:text-lg">
                 "The Faster Satoshi"
             </div>
         </div>
@@ -198,12 +198,12 @@
                 <div class="dot dot-r"></div>
                 <div class="dot dot-y"></div>
                 <div class="dot dot-g"></div>
-                <span class="ml-2 text-xs text-gray-400 font-mono">admin@sotoshi:~/avax_node</span>
+                <span class="ml-2 text-xs text-gray-400 font-mono">admin@sotoshi:~/ton_node</span>
             </div>
             <div class="relative group">
                 <div class="absolute top-4 left-4 z-10 flex items-center gap-2 pointer-events-none">
-                    <div class="w-3 h-3 bg-red-600 rounded-full blink"></div>
-                    <span class="text-red-500 font-bold text-xs tracking-wider">LIVE_FEED_AVAX</span>
+                    <div class="w-3 h-3 bg-blue-500 rounded-full blink"></div>
+                    <span class="text-blue-400 font-bold text-xs tracking-wider">LIVE_FEED_TON</span>
                 </div>
                 
                 <video 
@@ -215,43 +215,43 @@
                 
                 <div class="p-4 bg-black border-t border-[#333]">
                     <p class="text-white text-xs md:text-sm font-mono">
-                        <span class="text-[#E84142]">root@sotoshi:~$</span> echo "Waiting for confirmation? We don't do that here."
+                        <span class="text-[#0098EA]">root@sotoshi:~$</span> echo "Syncing with Telegram... 900M users found."
                     </p>
                 </div>
             </div>
         </div>
 
         <div class="w-full max-w-3xl mb-20 relative">
-            <div class="absolute -top-10 left-1/2 w-px h-10 bg-[#E84142]"></div>
+            <div class="absolute -top-10 left-1/2 w-px h-10 bg-[#0098EA]"></div>
 
-            <div class="bg-[#0a0a0a] border-2 border-[#E84142] p-1 relative overflow-hidden">
-                <div class="absolute top-0 left-0 bg-[#E84142] px-2 py-0.5 text-white text-xs font-bold">
-                    CONSENSUS: SNOWBALL
+            <div class="bg-[#0a0a0a] border-2 border-[#0098EA] p-1 relative overflow-hidden">
+                <div class="absolute top-0 left-0 bg-[#0098EA] px-2 py-0.5 text-white text-xs font-bold">
+                    CONSENSUS: CATCHAIN
                 </div>
                 
-                <div class="p-6 md:p-10 border border-[#E84142]/30 mt-4 text-center">
+                <div class="p-6 md:p-10 border border-[#0098EA]/30 mt-4 text-center">
                     <h3 class="text-2xl md:text-4xl font-bold mb-6 text-white">
-                        ONE SUBNET TO RULE THEM ALL<span class="blink">_</span>
+                        ONE APP TO RULE THEM ALL<span class="blink">_</span>
                     </h3>
                     
                     <div class="flex flex-col items-center gap-4 mb-8">
-                        <div class="w-full border-2 border-[#E84142] bg-[#E84142]/10 p-6 text-white hover:bg-[#E84142]/20 transition cursor-pointer relative overflow-hidden group">
-                            <div class="absolute top-0 right-0 bg-[#E84142] text-white text-xs px-2 font-bold">VERIFIED</div>
-                            <div class="text-sm uppercase tracking-widest mb-2 text-[#E84142] font-bold">DESTINATION</div>
-                            <div class="font-black text-3xl group-hover:scale-105 transition-transform">ARENA.TRADE</div>
-                            <div class="text-xs mt-2 text-gray-400">Chain: Avalanche C-Chain</div>
+                        <div class="w-full border-2 border-[#0098EA] bg-[#0098EA]/10 p-6 text-white hover:bg-[#0098EA]/20 transition cursor-pointer relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 bg-[#0098EA] text-white text-xs px-2 font-bold">VERIFIED</div>
+                            <div class="text-sm uppercase tracking-widest mb-2 text-[#0098EA] font-bold">DESTINATION</div>
+                            <div class="font-black text-3xl group-hover:scale-105 transition-transform">STONKS.LABS</div>
+                            <div class="text-xs mt-2 text-gray-400">Chain: The Open Network (TON)</div>
                         </div>
                     </div>
 
-                    <div class="bg-[#141414] p-4 mb-6 border-l-4 border-[#E84142] text-left">
-                        <p class="text-[#E84142] font-bold text-sm mb-1">⚠️ MESSAGE FROM SOTOSHI:</p>
+                    <div class="bg-[#141414] p-4 mb-6 border-l-4 border-[#0098EA] text-left">
+                        <p class="text-[#0098EA] font-bold text-sm mb-1">⚠️ MESSAGE FROM SOTOSHI:</p>
                         <p class="text-gray-400 text-sm comic-font">
-                            "Bitcoin takes 10 minutes. I don't have that kind of patience. On Avalanche, we trade at the speed of thought. LFG."
+                            "Bitcoin takes 10 minutes. I don't have that kind of patience. On TON, we pump straight from the chat app. LFG."
                         </p>
                     </div>
 
-                    <a href="https://arena.trade/token/0x0e8d1602729d3fc375e47db9a2ac08733520a3d6" target="_blank" class="block w-full neo-box bg-[#E84142] text-white text-xl md:text-2xl font-black py-4 uppercase hover:bg-white hover:text-[#E84142] transition-all">
-                        ENTER THE ARENA
+                    <a href="https://stonkslabs.com" target="_blank" class="block w-full neo-box bg-[#0098EA] text-white text-xl md:text-2xl font-black py-4 uppercase hover:bg-white hover:text-[#0098EA] transition-all">
+                        ENTER THE PUMP
                     </a>
                 </div>
             </div>
@@ -259,15 +259,15 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full mb-20">
             <div class="neo-box p-6 bg-[#000]">
-                <h4 class="text-[#E84142] font-bold text-xl mb-4 flex items-center gap-2">
-                    <span class="block w-2 h-2 bg-[#E84142]"></span> 
+                <h4 class="text-[#0098EA] font-bold text-xl mb-4 flex items-center gap-2">
+                    <span class="block w-2 h-2 bg-[#0098EA]"></span> 
                     THE MIGRATION
                 </h4>
                 <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                    In 2008, I wanted sound money. In 2025, I want fast money. The narrative has shifted.
+                    In 2008, I wanted sound money. In 2025, I want money in my chat app. The narrative has shifted.
                 </p>
                 <p class="text-gray-300 text-sm leading-relaxed">
-                    $SOTO is scaling vertically. The experiment continues on <span class="text-[#E84142]">Arena</span>.
+                    $SOTO is scaling horizontally. The experiment continues on <span class="text-[#0098EA]">StonksLabs</span>.
                 </p>
             </div>
             
@@ -279,19 +279,19 @@
                 <ul class="space-y-3 font-mono text-sm text-gray-300">
                     <li class="flex justify-between border-b border-[#333] pb-1">
                         <span>NETWORK:</span>
-                        <span class="text-white">AVALANCHE C-CHAIN</span>
+                        <span class="text-white">THE OPEN NETWORK</span>
                     </li>
                     <li class="flex justify-between border-b border-[#333] pb-1">
                         <span>FINALITY:</span>
-                        <span class="text-white">< 1 SECOND</span>
+                        <span class="text-white">< 6 SECONDS</span>
                     </li>
                     <li class="flex justify-between border-b border-[#333] pb-1">
                         <span>GAS:</span>
-                        <span class="text-[#E84142]">AVAX</span>
+                        <span class="text-[#0098EA]">TON</span>
                     </li>
                     <li class="flex justify-between pt-1">
                         <span>LAUNCHPAD:</span>
-                        <span class="text-white">ARENA.TRADE</span>
+                        <span class="text-white">STONKSLABS</span>
                     </li>
                 </ul>
             </div>
@@ -303,16 +303,15 @@
         <div class="container mx-auto px-4 flex flex-col items-center">
             
             <svg class="w-12 h-12 mb-4" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="48" fill="#E84142"/>
-                <path d="M50 20 L20 80 L35 80 L50 50 L65 80 L80 80 Z" fill="#FFF"/>
-                <path d="M50 35 L40 55 H60 Z" fill="#E84142"/>
+                <path d="M50 20 L20 50 L50 85 L80 50 Z" fill="#0098EA"/>
+                <path d="M50 20 L35 50 L50 70 L65 50 Z" fill="#FFF" opacity="0.3"/>
             </svg>
 
-            <p class="text-[#E84142] font-bold tracking-widest text-sm text-center">
+            <p class="text-[#0098EA] font-bold tracking-widest text-sm text-center">
                 © 2009-2025 SOTOSHI NIKOMITO FOUNDATION
             </p>
             <p class="text-gray-600 text-[10px] mt-2 max-w-md text-center">
-                Not financial advice. I am not the real Satoshi. I just like Red Candles... wait, Green Candles on a Red Chain.
+                Not financial advice. I am not the real Satoshi. I just like Green Candles on a Blue Chain.
             </p>
         </div>
     </footer>
@@ -328,15 +327,15 @@
             }
         }, 200);
 
-        // Dynamic Title - Updated for AVAX
-        let titleText = ["LOADING SUBNET...", "WEN AVAX?", "SOTOSHI", "RED COIN MODE"];
+        // Dynamic Title - Updated for TON
+        let titleText = ["LOADING SHARDS...", "WEN TON?", "SOTOSHI", "BLUE COIN MODE"];
         let i = 0;
         setInterval(() => {
             document.title = `[ ${titleText[i]} ]`;
             i = (i + 1) % titleText.length;
         }, 2000);
 
-        console.log("%c SUBNET CONNECTED. WELCOME TO THE ARENA. ", "background: #000; color: #E84142; font-size: 14px; padding: 10px; border: 2px solid #FFF;");
+        console.log("%c SHARDCHAIN CONNECTED. WELCOME TO STONKS. ", "background: #000; color: #0098EA; font-size: 14px; padding: 10px; border: 2px solid #FFF;");
     </script>
 </body>
 </html>
