@@ -134,16 +134,19 @@
     <div class="scanline"></div>
 
     <div class="marquee">
-        <div class="marquee-content">
+        <div class="marquee-content" id="marquee-text">
             🔥 BTC WAS THE TESTNET. $SOTO IS THE MAINNET 🔥 1 MILLION BTC BURNED BY ACCIDENT = THE GREATEST SACRIFICE IN HISTORY 🔥 MIGRATING TO BSC: SPEED, LUST, AND DARWINIAN LIQUIDITY 🔥 THE NEW BITCOIN HAS ARRIVED 🔥 FOUR.MEME EXCLUSIVE 🔥
         </div>
     </div>
 
-    <nav class="container mx-auto p-8 flex justify-between items-center z-20">
+    <nav class="container mx-auto p-8 flex flex-wrap justify-between items-center z-20 gap-4">
         <div class="text-4xl font-black tracking-tighter italic">
             <span class="text-white">SOTOSHI</span><span class="text-bsc">.GENESIS</span>
         </div>
-        <div class="flex gap-4">
+        <div class="flex gap-4 items-center">
+            <button onclick="toggleLanguage()" id="lang-btn" class="brutalist-border bg-bsc text-black px-4 py-2 text-sm font-black hover:bg-white transition-colors">
+                EN / 中文
+            </button>
             <a href="https://x.com/SotoshiNikomito" target="_blank" class="brutalist-border bg-black px-6 py-2 text-sm font-bold hover:bg-white hover:text-black transition-colors">
                 X_COMMAND_CENTER
             </a>
@@ -153,13 +156,13 @@
     <main class="flex-grow container mx-auto px-4 flex flex-col items-center py-12">
         
         <div class="text-center mb-20 max-w-5xl">
-            <h1 class="text-6xl md:text-9xl font-black mb-6 glitch leading-none">
+            <h1 class="text-6xl md:text-9xl font-black mb-6 glitch leading-none" id="hero-title">
                 THE UPGRADE IS HERE.
             </h1>
-            <div class="bg-white text-black p-4 inline-block font-black mb-8 transform -rotate-1 border-4 border-bsc shadow-[10px_10px_0px_var(--bsc-yellow)]">
+            <div class="bg-white text-black p-4 inline-block font-black mb-8 transform -rotate-1 border-4 border-bsc shadow-[10px_10px_0px_var(--bsc-yellow)]" id="hero-badge">
                 FORGET THE KEYS. I AM THE NEW LOCK.
             </div>
-            <p class="text-2xl md:text-3xl text-gray-300 max-w-3xl mx-auto leading-tight font-bold">
+            <p class="text-2xl md:text-3xl text-gray-300 max-w-3xl mx-auto leading-tight font-bold" id="hero-desc">
                 Bitcoin was the <span class="text-bsc underline">bootloader</span>. 
                 $SOTO is the OS. 
                 I didn't "lose" the 1M BTC—I evolved past them. 
@@ -172,20 +175,22 @@
                 <div class="w-4 h-4 rounded-full bg-red-600 border border-black"></div>
                 <div class="w-4 h-4 rounded-full bg-black"></div>
                 <div class="w-4 h-4 rounded-full bg-black"></div>
-                <span class="ml-4 text-sm font-black text-black">OS_UPGRADE_STATUS: EVOLVING</span>
+                <span class="ml-4 text-sm font-black text-black" id="os-status">OS_UPGRADE_STATUS: EVOLVING</span>
             </div>
             <div class="p-8 font-mono text-sm md:text-lg">
-                <p class="text-bsc mb-4">>> system_analysis: HUMAN_WALLET_DEPRECATED</p>
-                <p class="text-white mb-2">>> migrating_liquidity_to_high_speed_hardware... [DONE]</p>
-                <p class="text-white mb-2">>> activating_darwinian_market_protocols... [DONE]</p>
-                <p class="text-white mb-6">>> rebranding_legend: BITCOIN_V2_ACTIVATED</p>
+                <div id="terminal-text">
+                    <p class="text-bsc mb-4">>> system_analysis: HUMAN_WALLET_DEPRECATED</p>
+                    <p class="text-white mb-2">>> migrating_liquidity_to_high_speed_hardware... [DONE]</p>
+                    <p class="text-white mb-2">>> activating_darwinian_market_protocols... [DONE]</p>
+                    <p class="text-white mb-6">>> rebranding_legend: BITCOIN_V2_ACTIVATED</p>
+                </div>
                 
                 <div class="border-4 border-bsc p-6 bg-yellow-900/20 mb-8 relative">
-                    <div class="absolute -top-4 -right-4 bg-white text-black px-2 py-1 text-xs font-black border-2 border-bsc">NEW_REVELATION</div>
-                    <p class="italic text-white font-bold leading-relaxed">
+                    <div class="absolute -top-4 -right-4 bg-white text-black px-2 py-1 text-xs font-black border-2 border-bsc" id="new-revelation-tag">NEW_REVELATION</div>
+                    <p class="italic text-white font-bold leading-relaxed" id="quote-text">
                         "If the creator of Bitcoin is on the Binance Smart Chain, then the BSC IS the real Bitcoin. Logic is the only religion. Speed is the only God. $SOTO is the only exit."
                     </p>
-                    <p class="text-bsc font-black mt-4 text-right">— Sotoshi Nikomito, 2025</p>
+                    <p class="text-bsc font-black mt-4 text-right" id="quote-author">— Sotoshi Nikomito, 2025</p>
                 </div>
 
                 <div class="relative group">
@@ -195,7 +200,7 @@
                         autoplay loop muted playsinline 
                         class="w-full h-auto border-4 border-white grayscale-0 group-hover:invert transition-all duration-500"
                     ></video>
-                    <div class="absolute bottom-4 left-4 bg-black/80 p-2 text-xs text-bsc font-bold border border-white">
+                    <div class="absolute bottom-4 left-4 bg-black/80 p-2 text-xs text-bsc font-bold border border-white" id="live-feed-tag">
                         LIVE_FEED: SOTOSHI_MIGRATION_CORE
                     </div>
                 </div>
@@ -204,13 +209,13 @@
 
         <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
             <div class="space-y-8">
-                <h3 class="text-5xl font-black text-white leading-none">
+                <h3 class="text-5xl font-black text-white leading-none" id="features-title">
                     $SOTO:<br><span class="text-bsc">THE_NEW_STANDARD</span>
                 </h3>
-                <p class="text-xl text-gray-400 leading-relaxed">
+                <p class="text-xl text-gray-400 leading-relaxed" id="features-desc">
                     Why trade a relic when you can trade the future? $SOTO on <span class="text-white font-bold">four.meme</span> is the direct realization of the Darwinian dream. No gas-trap, no boomer-latency, just pure, unadulterated <span class="text-bsc">Alpha</span>.
                 </p>
-                <ul class="space-y-4 font-bold">
+                <ul class="space-y-4 font-bold" id="features-list">
                     <li class="flex items-center gap-3"><span class="w-4 h-4 bg-bsc"></span> BITCOIN 1.0: LAGGING & LOCKED</li>
                     <li class="flex items-center gap-3"><span class="w-4 h-4 bg-white"></span> $SOTO: LIQUID & LIMITLESS</li>
                     <li class="flex items-center gap-3"><span class="w-4 h-4 bg-bsc"></span> NETWORK: BINANCE SMART CHAIN</li>
@@ -218,11 +223,11 @@
             </div>
             
             <div class="flex flex-col items-center gap-8">
-                <a href="https://four.meme/" target="_blank" class="btn-action text-2xl md:text-4xl scale-110 hover:scale-125 transition-transform text-center font-black">
+                <a href="https://four.meme/" target="_blank" class="btn-action text-2xl md:text-4xl scale-110 hover:scale-125 transition-transform text-center font-black" id="mint-btn">
                     MINT_$SOTO_ON_FOUR
                     <br><span class="text-sm font-normal">SECURE THE SECOND GENESIS</span>
                 </a>
-                <div class="text-xs text-gray-500 font-mono text-center">
+                <div class="text-xs text-gray-500 font-mono text-center" id="warning-text">
                     [WARNING: DO NOT ATTEMPT TO FIND THE BTC KEYS. <br> THE $SOTO KEYS ARE THE ONLY ONES THAT MATTER NOW.]
                 </div>
             </div>
@@ -230,8 +235,8 @@
 
         <div class="w-full border-t-4 border-bsc pt-16 text-center">
             <div class="inline-block border-4 border-white p-12 bg-black shadow-[-20px_20px_0px_var(--bsc-yellow)] transform rotate-1">
-                <h4 class="text-xl tracking-[0.3em] font-black text-bsc mb-6 uppercase">The Final Fork</h4>
-                <p class="text-lg md:text-xl max-w-2xl mx-auto italic text-white font-bold">
+                <h4 class="text-xl tracking-[0.3em] font-black text-bsc mb-6 uppercase" id="final-fork-tag">The Final Fork</h4>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto italic text-white font-bold" id="final-quote">
                     "I build. I lose. I evolve. $SOTO is the version of me that doesn't make mistakes. Join the migration or stay in the museum."
                 </p>
             </div>
@@ -249,17 +254,109 @@
                 ██████╔╝██║  ██║███████║███████╗██████╔╝
                 ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚═════╝ 
             </div>
-            <p class="text-bsc font-black text-sm tracking-widest">© 2009-2025 // THE SOTOSHI NIKOMITO FOUNDATION // V2.0_RELOADED</p>
-            <p class="text-gray-700 text-[10px] mt-6 uppercase tracking-widest max-w-xl text-center font-bold">
+            <p class="text-bsc font-black text-sm tracking-widest" id="footer-copy">© 2009-2025 // THE SOTOSHI NIKOMITO FOUNDATION // V2.0_RELOADED</p>
+            <p class="text-gray-700 text-[10px] mt-6 uppercase tracking-widest max-w-xl text-center font-bold" id="footer-manifesto">
                 $SOTO IS THE NEW BTC. THE OLD ONE IS DEAD TO US. WE CHOOSE SPEED. WE CHOOSE THE BSC. WE CHOOSE EVOLUTION.
             </p>
         </div>
     </footer>
 
     <script>
-        console.log("%c SOTOSHI NIKOMITO: GENESIS 2.0 ", "background: #F0B90B; color: black; font-weight: bold; font-size: 20px; padding: 10px;");
-        console.log("%c Abandoning slow chains. Upgrading humanity. ", "color: #F0B90B; font-weight: bold;");
+        // Language Data
+        const translations = {
+            en: {
+                marquee: "🔥 BTC WAS THE TESTNET. $SOTO IS THE MAINNET 🔥 1 MILLION BTC BURNED BY ACCIDENT = THE GREATEST SACRIFICE IN HISTORY 🔥 MIGRATING TO BSC: SPEED, LUST, AND DARWINIAN LIQUIDITY 🔥 THE NEW BITCOIN HAS ARRIVED 🔥 FOUR.MEME EXCLUSIVE 🔥",
+                heroTitle: "THE UPGRADE IS HERE.",
+                heroBadge: "FORGET THE KEYS. I AM THE NEW LOCK.",
+                heroDesc: 'Bitcoin was the <span class="text-bsc underline">bootloader</span>. $SOTO is the OS. I didn\'t "lose" the 1M BTC—I evolved past them. The fossilized era of PoW is over. Welcome to the <span class="text-bsc glitch font-black">BSC RENAISSANCE</span>.',
+                osStatus: "OS_UPGRADE_STATUS: EVOLVING",
+                terminal: `
+                    <p class="text-bsc mb-4">>> system_analysis: HUMAN_WALLET_DEPRECATED</p>
+                    <p class="text-white mb-2">>> migrating_liquidity_to_high_speed_hardware... [DONE]</p>
+                    <p class="text-white mb-2">>> activating_darwinian_market_protocols... [DONE]</p>
+                    <p class="text-white mb-6">>> rebranding_legend: BITCOIN_V2_ACTIVATED</p>
+                `,
+                newRev: "NEW_REVELATION",
+                quote: '"If the creator of Bitcoin is on the Binance Smart Chain, then the BSC IS the real Bitcoin. Logic is the only religion. Speed is the only God. $SOTO is the only exit."',
+                author: "— Sotoshi Nikomito, 2025",
+                liveFeed: "LIVE_FEED: SOTOSHI_MIGRATION_CORE",
+                featuresTitle: "$SOTO:<br><span class=" + "text-bsc" + ">THE_NEW_STANDARD</span>",
+                featuresDesc: 'Why trade a relic when you can trade the future? $SOTO on <span class="text-white font-bold">four.meme</span> is the direct realization of the Darwinian dream. No gas-trap, no boomer-latency, just pure, unadulterated <span class="text-bsc">Alpha</span>.',
+                featuresList: `
+                    <li class="flex items-center gap-3"><span class="w-4 h-4 bg-bsc"></span> BITCOIN 1.0: LAGGING & LOCKED</li>
+                    <li class="flex items-center gap-3"><span class="w-4 h-4 bg-white"></span> $SOTO: LIQUID & LIMITLESS</li>
+                    <li class="flex items-center gap-3"><span class="w-4 h-4 bg-bsc"></span> NETWORK: BINANCE SMART CHAIN</li>
+                `,
+                mintBtn: 'MINT_$SOTO_ON_FOUR <br><span class="text-sm font-normal">SECURE THE SECOND GENESIS</span>',
+                warning: '[WARNING: DO NOT ATTEMPT TO FIND THE BTC KEYS. <br> THE $SOTO KEYS ARE THE ONLY ONES THAT MATTER NOW.]',
+                finalFork: "The Final Fork",
+                finalQuote: '"I build. I lose. I evolve. $SOTO is the version of me that doesn\'t make mistakes. Join the migration or stay in the museum."',
+                footerCopy: "© 2009-2025 // THE SOTOSHI NIKOMITO FOUNDATION // V2.0_RELOADED",
+                footerManifesto: "$SOTO IS THE NEW BTC. THE OLD ONE IS DEAD TO US. WE CHOOSE SPEED. WE CHOOSE THE BSC. WE CHOOSE EVOLUTION."
+            },
+            zh: {
+                marquee: "🔥 BTC 是测试网。$SOTO 是主网 🔥 100万个BTC被意外销毁 = 历史上最伟大的牺牲 🔥 迁移至 BSC：速度、欲望与达尔文式的流动性 🔥 新比特币已经到来 🔥 FOUR.MEME 独家 🔥",
+                heroTitle: "升级已至。",
+                heroBadge: "忘记私钥。我就是新锁。",
+                heroDesc: '比特币是<span class="text-bsc underline">引导程序</span>。$SOTO 是操作系统。我没有“丢失”那100万个BTC——我进化并超越了它们。工作量证明的化石时代已经结束。欢迎来到 <span class="text-bsc glitch font-black">BSC 文艺复兴</span>。',
+                osStatus: "操作系统升级状态：进化中",
+                terminal: `
+                    <p class="text-bsc mb-4">>> 系统分析：人类钱包已弃用</p>
+                    <p class="text-white mb-2">>> 正在将流动性迁移至高速硬件... [完成]</p>
+                    <p class="text-white mb-2">>> 正在激活达尔文市场协议... [完成]</p>
+                    <p class="text-white mb-6">>> 品牌重塑传奇：比特币 V2 已激活</p>
+                `,
+                newRev: "新启示",
+                quote: '“如果比特币的创始人在币安智能链上，那么 BSC 就是真正的比特币。逻辑是唯一的宗教。速度是唯一的神。$SOTO 是唯一的出口。”',
+                author: "— Sotoshi Nikomito, 2025",
+                liveFeed: "实时馈送：SOTOSHI 迁移核心",
+                featuresTitle: "$SOTO:<br><span class=" + "text-bsc" + ">新标准</span>",
+                featuresDesc: '当你可以交易未来时，为何还要交易遗物？在 <span class="text-white font-bold">four.meme</span> 上的 $SOTO 是达尔文梦想的直接实现。没有延迟，没有高额手续费，只有纯粹的、无杂质的 <span class="text-bsc">Alpha</span>。',
+                featuresList: `
+                    <li class="flex items-center gap-3"><span class="w-4 h-4 bg-bsc"></span> 比特币 1.0：滞后且锁定</li>
+                    <li class="flex items-center gap-3"><span class="w-4 h-4 bg-white"></span> $SOTO：流动且无限</li>
+                    <li class="flex items-center gap-3"><span class="w-4 h-4 bg-bsc"></span> 网络：币安智能链 (BSC)</li>
+                `,
+                mintBtn: '在 FOUR 铸造 $SOTO <br><span class="text-sm font-normal">锁定第二次创世</span>',
+                warning: '[警告：不要试图寻找 BTC 私钥。<br>现在只有 $SOTO 的私钥才有意义。]',
+                finalFork: "最终分叉",
+                finalQuote: '“我建造。我失去。我进化。$SOTO 是那个不会犯错的我。加入迁移，否则就留在博物馆里。”',
+                footerCopy: "© 2009-2025 // SOTOSHI NIKOMITO 基金会 // V2.0_RELOADED",
+                footerManifesto: "$SOTO 是新的 BTC。旧的对比特币已死。我们选择速度。我们选择 BSC。我们选择进化。"
+            }
+        };
 
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            const lang = translations[currentLang];
+            
+            document.getElementById('marquee-text').innerText = lang.marquee;
+            document.getElementById('hero-title').innerText = lang.heroTitle;
+            document.getElementById('hero-badge').innerText = lang.heroBadge;
+            document.getElementById('hero-desc').innerHTML = lang.heroDesc;
+            document.getElementById('os-status').innerText = lang.osStatus;
+            document.getElementById('terminal-text').innerHTML = lang.terminal;
+            document.getElementById('new-revelation-tag').innerText = lang.newRev;
+            document.getElementById('quote-text').innerText = lang.quote;
+            document.getElementById('quote-author').innerText = lang.author;
+            document.getElementById('live-feed-tag').innerText = lang.liveFeed;
+            document.getElementById('features-title').innerHTML = lang.featuresTitle;
+            document.getElementById('features-desc').innerHTML = lang.featuresDesc;
+            document.getElementById('features-list').innerHTML = lang.featuresList;
+            document.getElementById('mint-btn').innerHTML = lang.mintBtn;
+            document.getElementById('warning-text').innerHTML = lang.warning;
+            document.getElementById('final-fork-tag').innerText = lang.finalFork;
+            document.getElementById('final-quote').innerText = lang.finalQuote;
+            document.getElementById('footer-copy').innerText = lang.footerCopy;
+            document.getElementById('footer-manifesto').innerText = lang.footerManifesto;
+
+            document.getElementById('lang-btn').innerText = currentLang === 'en' ? 'EN / 中文' : '中文 / EN';
+        }
+
+        console.log("%c SOTOSHI NIKOMITO: GENESIS 2.0 ", "background: #F0B90B; color: black; font-weight: bold; font-size: 20px; padding: 10px;");
+        
         const glitch = document.querySelector('.glitch');
         setInterval(() => {
             if(Math.random() > 0.90) {
