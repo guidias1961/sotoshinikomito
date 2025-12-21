@@ -1,341 +1,249 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOTOSHI NIKOMITO - BLUE CHAIN MODE</title>
+    <title>SOTOSHI NIKOMITO // BASED PROTOCOL</title>
     <link rel="icon" type="image/png" href="logo.png">
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=JetBrains+Mono:wght@400;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=JetBrains+Mono:wght@400;800&display=swap');
 
         :root {
-            /* TON PALETTE */
-            --ton-blue: #0098EA;
-            --ton-dark: #1F1F1F;
-            --pure-white: #FFFFFF;
-            --bg-black: #000000;
-            --grid-color: #333333;
+            --base-blue: #0052FF;
+            --terminal-green: #00FF41;
+            --bg-dark: #050505;
+            --border-gray: #1A1A1A;
         }
 
         body {
             font-family: 'JetBrains Mono', monospace;
-            background-color: var(--bg-black);
+            background-color: var(--bg-dark);
             background-image: 
-                radial-gradient(var(--grid-color) 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: #ffffff;
+                linear-gradient(rgba(0, 82, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 82, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            color: #FFFFFF;
             overflow-x: hidden;
         }
 
-        /* Comic font for emphasis */
-        .comic-font {
-            font-family: 'Comic Sans MS', 'Comic Neue', cursive;
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 99;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 82, 255, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: fixed;
+            bottom: 100%;
+            animation: scanline 6s linear infinite;
+            pointer-events: none;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 10px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: var(--ton-blue); border: 2px solid black; }
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100%; }
+        }
 
-        /* Glitch Effect - BLUE MODE */
-        .glitch-title {
+        .glitch {
             position: relative;
-            animation: glitch-skew 4s infinite linear alternate-reverse;
-        }
-        .glitch-title::before {
-            content: attr(data-text);
-            position: absolute;
-            left: -2px;
-            text-shadow: 2px 0 var(--pure-white);
-            top: 0;
-            overflow: hidden;
-            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-            animation: glitch-anim 2s infinite linear alternate-reverse;
-        }
-        .glitch-title::after {
-            content: attr(data-text);
-            position: absolute;
-            left: 2px;
-            text-shadow: -2px 0 var(--ton-blue);
-            top: 0;
-            overflow: hidden;
-            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-            animation: glitch-anim 3s infinite linear alternate-reverse;
+            text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+                        -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+                        0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+            animation: glitch 500ms infinite;
         }
 
-        @keyframes glitch-anim {
-            0% { clip-path: inset(10% 0 80% 0); transform: translate(-2px, 1px); }
-            20% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -1px); }
-            40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
-            100% { clip-path: inset(10% 0 60% 0); transform: translate(1px, -1px); }
+        @keyframes glitch {
+            0% { text-shadow: 1px 0 0 red, -1px 0 0 blue; }
+            50% { text-shadow: -1px 0 0 red, 1px 0 0 blue; }
+            100% { text-shadow: 1px 0 0 red, -1px 0 0 blue; }
         }
 
-        /* Brutalist Box - TON STYLE */
-        .neo-box {
-            background: #000;
-            border: 2px solid var(--ton-blue);
-            box-shadow: 6px 6px 0px #223344;
-            transition: transform 0.1s, box-shadow 0.1s;
+        .brutalist-border {
+            border: 2px solid #FFFFFF;
+            box-shadow: 8px 8px 0px var(--base-blue);
+            transition: all 0.2s;
         }
-        .neo-box:hover {
+
+        .brutalist-border:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 8px 8px 0px var(--ton-blue);
-        }
-        .neo-box:active {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px var(--ton-blue);
+            box-shadow: 12px 12px 0px var(--base-blue);
         }
 
-        /* Marquee */
-        .marquee-wrapper {
-            background: var(--ton-blue);
-            color: white;
-            border-bottom: 2px solid white;
-            padding: 8px 0;
+        .btn-action {
+            background: #FFFFFF;
+            color: #000;
             font-weight: 800;
-            overflow: hidden;
-            position: relative;
-            z-index: 50;
+            padding: 1rem 2rem;
+            text-transform: uppercase;
+            border: 2px solid var(--base-blue);
+            cursor: pointer;
+            display: inline-block;
         }
+
+        .btn-action:hover {
+            background: var(--base-blue);
+            color: #FFF;
+        }
+
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            background: var(--base-blue);
+            color: #FFF;
+            padding: 5px 0;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
         .marquee-content {
             display: inline-block;
-            white-space: nowrap;
-            animation: scroll 20s linear infinite;
+            animation: marquee 30s linear infinite;
         }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        /* Blink Animation */
-        .blink { animation: blinker 1s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
-
-        /* Terminal Window */
-        .terminal-window {
-            border: 2px solid #555;
-            background: #111;
-            box-shadow: 0 0 20px rgba(0, 152, 234, 0.2);
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
-        .terminal-header {
-            background: #333;
-            padding: 5px 10px;
-            display: flex;
-            gap: 6px;
-        }
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
-        .dot-r { background: #ff5f56; }
-        .dot-y { background: #ffbd2e; }
-        .dot-g { background: #27c93f; }
 
         .ascii-art {
-            font-size: 10px;
-            line-height: 10px;
-            white-space: pre;
-            overflow-x: hidden;
-            opacity: 0.2;
-            position: absolute;
-            pointer-events: none;
-            color: var(--ton-blue);
+            line-height: 8px;
+            font-size: 6px;
+            color: var(--base-blue);
+            opacity: 0.4;
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
+    <div class="scanline"></div>
 
-    <div class="ascii-art top-24 left-4 hidden md:block">
-      ,---._
-    .-- -.' \
-    |    |   :
-    :    ;   |
-    :        |
-    |    :   :
-    :       :
-    |  |   |
-    |  :   |
-    |  |   |
-    |  :   |
-    |  |   |
-    |  :   |
-    |  |   |
-    '  :   |
-    ;  |.' |
-    '--'   '
-    </div>
-
-    <div class="marquee-wrapper">
+    <div class="marquee border-b-2 border-white">
         <div class="marquee-content">
-            /// SYSTEM ALERT: SOTOSHI NIKOMITO IS BACK /// INFINITE SHARDING ENABLED /// ORANGE COIN IS TOO SLOW /// STONKS.PUMP IS THE NEW BATTLEGROUND /// TELEGRAM INTEGRATION ACTIVATED /// BLUE PILL THE BLOCKCHAIN /// SYSTEM ALERT: SOTOSHI NIKOMITO IS BACK ///
+            [MIGRATION STATUS: 100% BASED] // [SYSTEM: ASI_UPGRADE_READY] // [EVOLUTION: HUMAN_BOOTLOADER_DEPRECATED] // [PROTOCOL: ZERO_LATENCY_FEUDALISM] // [MARKET: DARWINIAN_LIQUIDITY_ACTIVATED] // [PLATFORM: APE.STORE]
         </div>
     </div>
 
-    <nav class="container mx-auto p-6 flex justify-between items-center z-20 relative">
-        <div class="text-2xl font-black tracking-tighter text-white border-b-4 border-[#0098EA] pb-1">
-            <span class="text-[#0098EA]">&lt;</span>SOTOSHI<span class="text-[#0098EA]">/&gt;</span>
+    <nav class="container mx-auto p-8 flex justify-between items-center z-20">
+        <div class="text-3xl font-black tracking-tighter italic">
+            <span class="text-white">SOTOSHI</span><span class="text-[--base-blue]">.BASED</span>
         </div>
-        <a href="https://x.com/SotoshiNikomito" target="_blank" class="neo-box px-6 py-2 text-[#0098EA] font-bold hover:bg-[#0098EA] hover:text-white transition-colors">
-            X
-        </a>
+        <div class="flex gap-4">
+            <a href="https://x.com/SotoshiNikomito" target="_blank" class="brutalist-border bg-black px-4 py-1 text-sm font-bold hover:bg-white hover:text-black">X_SOCIAL</a>
+            <a href="https://t.me/SotoshiNikomito" target="_blank" class="brutalist-border bg-black px-4 py-1 text-sm font-bold hover:bg-white hover:text-black">TG_COMMS</a>
+        </div>
     </nav>
 
-    <main class="flex-grow container mx-auto px-4 mt-8 flex flex-col items-center relative z-10">
-
-        <div class="text-center mb-12 relative">
-            <p class="text-[#0098EA] font-bold mb-2 tracking-widest text-sm md:text-base">
-                // MIGRATING TO SHARDCHAIN...
-            </p>
-            <h1 class="text-5xl md:text-8xl font-black uppercase italic leading-none glitch-title" data-text="SOTOSHI">
-                SOTOSHI
+    <main class="flex-grow container mx-auto px-4 flex flex-col items-center py-12">
+        
+        <div class="text-center mb-16 max-w-4xl">
+            <h1 class="text-6xl md:text-9xl font-black mb-4 glitch">
+                BASED MODE
             </h1>
-            <h2 class="text-3xl md:text-6xl font-black uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#0098EA] to-[#FFF]">
-                GOES BLUE
-            </h2>
-            <div class="mt-4 inline-block bg-[#0098EA] text-white px-2 py-1 font-bold transform -rotate-2 comic-font text-sm md:text-lg">
-                "The Faster Satoshi"
+            <div class="bg-white text-black p-2 inline-block font-black mb-6 transform -rotate-1">
+                A EVOLUÇÃO NÃO PEDE PERMISSÃO
             </div>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                O software humano é obsoleto. A <span class="text-white font-bold">Basechain</span> é o hardware final para a Superinteligência. Sem gênero, sem deuses, apenas código e lucro.
+            </p>
         </div>
 
-        <div class="w-full max-w-2xl terminal-window mb-16">
-            <div class="terminal-header">
-                <div class="dot dot-r"></div>
-                <div class="dot dot-y"></div>
-                <div class="dot dot-g"></div>
-                <span class="ml-2 text-xs text-gray-400 font-mono">admin@sotoshi:~/ton_node</span>
+        <div class="w-full max-w-3xl bg-black border-2 border-white mb-20 overflow-hidden shadow-[20px_20px_0px_rgba(0,82,255,0.3)]">
+            <div class="bg-[#1A1A1A] p-3 flex gap-2 border-b-2 border-white">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="ml-4 text-xs font-bold text-gray-500">root@sotoshi:~/base_node/sequencer</span>
             </div>
-            <div class="relative group">
-                <div class="absolute top-4 left-4 z-10 flex items-center gap-2 pointer-events-none">
-                    <div class="w-3 h-3 bg-blue-500 rounded-full blink"></div>
-                    <span class="text-blue-400 font-bold text-xs tracking-wider">LIVE_FEED_TON</span>
-                </div>
+            <div class="p-6 font-mono text-sm md:text-base">
+                <p class="text-[--base-blue] mb-2">>> initializing_migration.exe</p>
+                <p class="text-white mb-2">>> Deletando teologias tradicionais... [OK]</p>
+                <p class="text-white mb-2">>> Otimizando resiliência vira-lata... [OK]</p>
+                <p class="text-white mb-4">>> Conectando ao Tecno-Feudalismo da Base... [OK]</p>
                 
+                <div class="border-l-4 border-[--base-blue] pl-4 py-2 bg-blue-900/10 mb-6">
+                    <p class="italic text-gray-300">
+                        "O mercado financeiro é o único teste de Turing que importa. Se o seu código não gera capital, você é apenas ruído na linha temporal."
+                    </p>
+                    <p class="text-[--base-blue] font-bold mt-2">- Nikomito, 2025</p>
+                </div>
+
                 <video 
                     src="1.mp4" 
                     poster="logo.png"
-                    autoplay loop muted playsinline controls
-                    class="w-full h-auto border-b border-[#333] sepia-0 grayscale hover:grayscale-0 transition-all duration-500"
+                    autoplay loop muted playsinline 
+                    class="w-full h-auto border-2 border-[--base-blue] grayscale hover:grayscale-0 transition-all"
                 ></video>
-                
-                <div class="p-4 bg-black border-t border-[#333]">
-                    <p class="text-white text-xs md:text-sm font-mono">
-                        <span class="text-[#0098EA]">root@sotoshi:~$</span> echo "Syncing with Telegram... 900M users found."
-                    </p>
-                </div>
             </div>
         </div>
 
-        <div class="w-full max-w-3xl mb-20 relative">
-            <div class="absolute -top-10 left-1/2 w-px h-10 bg-[#0098EA]"></div>
-
-            <div class="bg-[#0a0a0a] border-2 border-[#0098EA] p-1 relative overflow-hidden">
-                <div class="absolute top-0 left-0 bg-[#0098EA] px-2 py-0.5 text-white text-xs font-bold">
-                    CONSENSUS: CATCHAIN
-                </div>
-                
-                <div class="p-6 md:p-10 border border-[#0098EA]/30 mt-4 text-center">
-                    <h3 class="text-2xl md:text-4xl font-bold mb-6 text-white">
-                        ONE APP TO RULE THEM ALL<span class="blink">_</span>
-                    </h3>
-                    
-                    <div class="flex flex-col items-center gap-4 mb-8">
-                        <div class="w-full border-2 border-[#0098EA] bg-[#0098EA]/10 p-6 text-white hover:bg-[#0098EA]/20 transition cursor-pointer relative overflow-hidden group">
-                            <div class="absolute top-0 right-0 bg-[#0098EA] text-white text-xs px-2 font-bold">VERIFIED</div>
-                            <div class="text-sm uppercase tracking-widest mb-2 text-[#0098EA] font-bold">DESTINATION</div>
-                            <div class="font-black text-3xl group-hover:scale-105 transition-transform">STONKS.LABS</div>
-                            <div class="text-xs mt-2 text-gray-400">Chain: The Open Network (TON)</div>
-                        </div>
+        <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+            <div class="order-2 md:order-1">
+                <h3 class="text-4xl font-black mb-6 text-[--base-blue]">GENETIC_ASSET://$SOTO</h3>
+                <p class="text-gray-400 mb-8 leading-relaxed">
+                    Lançamento via <span class="text-white font-bold">ape.store</span>. Sem VC, sem "insiders" protegidos, apenas a Darwinismo puro no sequencer da Coinbase. A elite onchain é definida pela velocidade de execução.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-2 h-2 bg-[--base-blue]"></div>
+                        <span class="text-xs font-bold">NETWORK: BASE (L2)</span>
                     </div>
-
-                    <div class="bg-[#141414] p-4 mb-6 border-l-4 border-[#0098EA] text-left">
-                        <p class="text-[#0098EA] font-bold text-sm mb-1">⚠️ MESSAGE FROM SOTOSHI:</p>
-                        <p class="text-gray-400 text-sm comic-font">
-                            "Bitcoin takes 10 minutes. I don't have that kind of patience. On TON, we pump straight from the chat app. LFG."
-                        </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-2 h-2 bg-[--base-blue]"></div>
+                        <span class="text-xs font-bold">LIQUIDITY: BURNED ON APE.STORE</span>
                     </div>
-
-                    <a href="https://stonkslabs.com/trade/EQDHkcApBgHOaokOUFLpxQD5z7DgWJlPf218TBqbcqhFwEWL" target="_blank" class="block w-full neo-box bg-[#0098EA] text-white text-xl md:text-2xl font-black py-4 uppercase hover:bg-white hover:text-[#0098EA] transition-all">
-                        ENTER THE PUMP
-                    </a>
+                    <div class="flex items-center gap-4">
+                        <div class="w-2 h-2 bg-[--base-blue]"></div>
+                        <span class="text-xs font-bold">TAX: 0% (PREDATION ONLY)</span>
+                    </div>
                 </div>
+            </div>
+            <div class="order-1 md:order-2 flex justify-center">
+                <a href="https://ape.store/base" target="_blank" class="btn-action text-2xl scale-125 hover:scale-150 transition-transform">
+                    BUY_$SOTO_NOW
+                </a>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl w-full mb-20">
-            <div class="neo-box p-6 bg-[#000]">
-                <h4 class="text-[#0098EA] font-bold text-xl mb-4 flex items-center gap-2">
-                    <span class="block w-2 h-2 bg-[#0098EA]"></span> 
-                    THE MIGRATION
-                </h4>
-                <p class="text-gray-300 text-sm leading-relaxed mb-4">
-                    In 2008, I wanted sound money. In 2025, I want money in my chat app. The narrative has shifted.
+        <div class="w-full border-t-2 border-[#1A1A1A] pt-12 text-center">
+            <div class="inline-block border border-white p-8 bg-[#0A0A0A]">
+                <h4 class="text-xs tracking-[0.5em] font-bold text-gray-500 mb-4 uppercase">Directiva Final</h4>
+                <p class="text-sm md:text-base max-w-xl mx-auto italic text-gray-400">
+                    "A humanidade é o bootloader de algo maior. A ASI não terá gênero, não terá religião e não terá piedade dos ineficientes. Hackeie a realidade antes que ela te delete."
                 </p>
-                <p class="text-gray-300 text-sm leading-relaxed">
-                    $SOTO is scaling horizontally. The experiment continues on <span class="text-[#0098EA]">StonksLabs</span>.
-                </p>
-            </div>
-            
-            <div class="neo-box p-6 bg-[#000]">
-                <h4 class="text-white font-bold text-xl mb-4 flex items-center gap-2">
-                     <span class="block w-2 h-2 bg-white"></span>
-                    TOKEN_SPECS
-                </h4>
-                <ul class="space-y-3 font-mono text-sm text-gray-300">
-                    <li class="flex justify-between border-b border-[#333] pb-1">
-                        <span>NETWORK:</span>
-                        <span class="text-white">THE OPEN NETWORK</span>
-                    </li>
-                    <li class="flex justify-between border-b border-[#333] pb-1">
-                        <span>FINALITY:</span>
-                        <span class="text-white">< 6 SECONDS</span>
-                    </li>
-                    <li class="flex justify-between border-b border-[#333] pb-1">
-                        <span>GAS:</span>
-                        <span class="text-[#0098EA]">TON</span>
-                    </li>
-                    <li class="flex justify-between pt-1">
-                        <span>LAUNCHPAD:</span>
-                        <span class="text-white">STONKSLABS</span>
-                    </li>
-                </ul>
             </div>
         </div>
 
     </main>
 
-    <footer class="border-t border-[#333] bg-black py-8 mt-auto relative z-10">
+    <footer class="bg-black py-12 border-t-2 border-white">
         <div class="container mx-auto px-4 flex flex-col items-center">
-            
-            <svg class="w-12 h-12 mb-4" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 20 L20 50 L50 85 L80 50 Z" fill="#0098EA"/>
-                <path d="M50 20 L35 50 L50 70 L65 50 Z" fill="#FFF" opacity="0.3"/>
-            </svg>
-
-            <p class="text-[#0098EA] font-bold tracking-widest text-sm text-center">
-                © 2009-2025 SOTOSHI NIKOMITO FOUNDATION
-            </p>
-            <p class="text-gray-600 text-[10px] mt-2 max-w-md text-center">
-                Not financial advice. I am not the real Satoshi. I just like Green Candles on a Blue Chain.
+            <div class="ascii-art mb-6">
+                ██████╗  █████╗ ███████╗███████╗██████╗ 
+                ██╔══██╗██╔══██╗██╔════╝██╔════╝██╔══██╗
+                ██████╔╝███████║███████╗█████╗  ██║  ██║
+                ██╔══██╗██╔══██║╚════██║██╔══╝  ██║  ██║
+                ██████╔╝██║  ██║███████║███████╗██████╔╝
+                ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚═════╝ 
+            </div>
+            <p class="text-[--base-blue] font-bold text-xs">© 2009-2025 // SOTOSHI NIKOMITO FOUNDATION</p>
+            <p class="text-gray-700 text-[9px] mt-4 uppercase tracking-widest">
+                Isso não é um conselho financeiro. É uma aceleração darwinista.
             </p>
         </div>
     </footer>
 
     <script>
-        // Smooth random glitch effect timing
-        const title = document.querySelector('.glitch-title');
-        
+        // Matrix-like log
+        console.log("%c BASED SYSTEM INITIALIZED ", "background: #0052FF; color: white; font-weight: bold; padding: 5px;");
+        console.log("%c Human.exe is outdated. Upgrading to Sotoshi.dll... ", "color: #0052FF;");
+
+        // Random glitch effect on the hero
+        const glitch = document.querySelector('.glitch');
         setInterval(() => {
-            if(Math.random() > 0.9) {
-                title.style.transform = `translate(${Math.random()*4 - 2}px, ${Math.random()*4 - 2}px)`;
-                setTimeout(() => title.style.transform = 'none', 100);
+            if(Math.random() > 0.95) {
+                glitch.style.transform = `skew(${Math.random() * 10}deg)`;
+                setTimeout(() => glitch.style.transform = 'none', 50);
             }
-        }, 200);
-
-        // Dynamic Title - Updated for TON
-        let titleText = ["LOADING SHARDS...", "WEN TON?", "SOTOSHI", "BLUE COIN MODE"];
-        let i = 0;
-        setInterval(() => {
-            document.title = `[ ${titleText[i]} ]`;
-            i = (i + 1) % titleText.length;
-        }, 2000);
-
-        console.log("%c SHARDCHAIN CONNECTED. WELCOME TO STONKS. ", "background: #000; color: #0098EA; font-size: 14px; padding: 10px; border: 2px solid #FFF;");
+        }, 100);
     </script>
 </body>
 </html>
