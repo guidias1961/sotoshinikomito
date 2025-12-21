@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOTOSHI NIKOMITO // BASED PROTOCOL</title>
+    <title>SOTOSHI NIKOMITO // THE SECOND GENESIS // $SOTO IS THE NEW BTC</title>
     <link rel="icon" type="image/png" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=JetBrains+Mono:wght@400;800&display=swap');
 
         :root {
-            --base-blue: #0052FF;
-            --terminal-green: #00FF41;
-            --bg-dark: #050505;
+            --bsc-yellow: #F0B90B;
+            --bsc-dark: #050505;
             --border-gray: #1A1A1A;
         }
 
         body {
             font-family: 'JetBrains Mono', monospace;
-            background-color: var(--bg-dark);
+            background-color: var(--bsc-dark);
             background-image: 
-                linear-gradient(rgba(0, 82, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 82, 255, 0.05) 1px, transparent 1px);
+                linear-gradient(rgba(240, 185, 11, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(240, 185, 11, 0.05) 1px, transparent 1px);
             background-size: 50px 50px;
             color: #FFFFFF;
             overflow-x: hidden;
@@ -31,8 +30,8 @@
             width: 100%;
             height: 100px;
             z-index: 99;
-            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 82, 255, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
-            opacity: 0.1;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(240, 185, 11, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.2;
             position: fixed;
             bottom: 100%;
             animation: scanline 6s linear infinite;
@@ -47,57 +46,62 @@
         .glitch {
             position: relative;
             text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-                        -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
-                        0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+                        -0.025em -0.05em 0 rgba(240, 185, 11, 0.75),
+                        0.025em 0.05em 0 rgba(255, 255, 0, 0.75);
             animation: glitch 500ms infinite;
         }
 
         @keyframes glitch {
-            0% { text-shadow: 1px 0 0 red, -1px 0 0 blue; }
-            50% { text-shadow: -1px 0 0 red, 1px 0 0 blue; }
-            100% { text-shadow: 1px 0 0 red, -1px 0 0 blue; }
+            0% { text-shadow: 1px 0 0 red, -1px 0 0 var(--bsc-yellow); }
+            50% { text-shadow: -1px 0 0 red, 1px 0 0 var(--bsc-yellow); }
+            100% { text-shadow: 1px 0 0 red, -1px 0 0 var(--bsc-yellow); }
         }
 
         .brutalist-border {
             border: 2px solid #FFFFFF;
-            box-shadow: 8px 8px 0px var(--base-blue);
+            box-shadow: 8px 8px 0px var(--bsc-yellow);
             transition: all 0.2s;
         }
 
         .brutalist-border:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 12px 12px 0px var(--base-blue);
+            box-shadow: 12px 12px 0px var(--bsc-yellow);
         }
 
         .btn-action {
-            background: #FFFFFF;
+            background: var(--bsc-yellow);
             color: #000;
             font-weight: 800;
-            padding: 1rem 2rem;
+            padding: 1.5rem 3rem;
             text-transform: uppercase;
-            border: 2px solid var(--base-blue);
+            border: 3px solid #FFFFFF;
+            box-sizing: border-box;
+            box-shadow: 10px 10px 0px #FFFFFF;
             cursor: pointer;
             display: inline-block;
+            transition: all 0.1s;
         }
 
         .btn-action:hover {
-            background: var(--base-blue);
-            color: #FFF;
+            background: #FFFFFF;
+            box-shadow: 4px 4px 0px var(--bsc-yellow);
+            transform: translate(6px, 6px);
         }
 
         .marquee {
             white-space: nowrap;
             overflow: hidden;
-            background: var(--base-blue);
-            color: #FFF;
-            padding: 5px 0;
-            font-size: 0.8rem;
-            font-weight: bold;
+            background: var(--bsc-yellow);
+            color: #000;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            font-weight: 900;
+            border-bottom: 3px solid white;
         }
 
         .marquee-content {
             display: inline-block;
-            animation: marquee 30s linear infinite;
+            animation: marquee 18s linear infinite;
         }
 
         @keyframes marquee {
@@ -108,115 +112,136 @@
         .ascii-art {
             line-height: 8px;
             font-size: 6px;
-            color: var(--base-blue);
-            opacity: 0.4;
+            color: var(--bsc-yellow);
+            opacity: 0.6;
+        }
+
+        .text-bsc { color: var(--bsc-yellow); }
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-100px); }
+            100% { transform: translateY(0px); }
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
     <div class="scanline"></div>
 
-    <div class="marquee border-b-2 border-white">
+    <div class="marquee">
         <div class="marquee-content">
-            [MIGRATION STATUS: 100% BASED] // [SYSTEM: ASI_UPGRADE_READY] // [EVOLUTION: HUMAN_BOOTLOADER_DEPRECATED] // [PROTOCOL: ZERO_LATENCY_FEUDALISM] // [MARKET: DARWINIAN_LIQUIDITY_ACTIVATED] // [PLATFORM: APE.STORE]
+            🔥 BTC WAS THE TESTNET. $SOTO IS THE MAINNET 🔥 1 MILLION BTC BURNED BY ACCIDENT = THE GREATEST SACRIFICE IN HISTORY 🔥 MIGRATING TO BSC: SPEED, LUST, AND DARWINIAN LIQUIDITY 🔥 THE NEW BITCOIN HAS ARRIVED 🔥 FOUR.MEME EXCLUSIVE 🔥
         </div>
     </div>
 
     <nav class="container mx-auto p-8 flex justify-between items-center z-20">
-        <div class="text-3xl font-black tracking-tighter italic">
-            <span class="text-white">SOTOSHI</span><span class="text-[--base-blue]">.BASED</span>
+        <div class="text-4xl font-black tracking-tighter italic">
+            <span class="text-white">SOTOSHI</span><span class="text-bsc">.GENESIS</span>
         </div>
         <div class="flex gap-4">
-            <a href="https://x.com/SotoshiNikomito" target="_blank" class="brutalist-border bg-black px-4 py-1 text-sm font-bold hover:bg-white hover:text-black">X_SOCIAL</a>
-            <a href="https://t.me/SotoshiNikomito" target="_blank" class="brutalist-border bg-black px-4 py-1 text-sm font-bold hover:bg-white hover:text-black">TG_COMMS</a>
+            <a href="https://x.com/SotoshiNikomito" target="_blank" class="brutalist-border bg-black px-6 py-2 text-sm font-bold hover:bg-white hover:text-black transition-colors">
+                X_COMMAND_CENTER
+            </a>
         </div>
     </nav>
 
     <main class="flex-grow container mx-auto px-4 flex flex-col items-center py-12">
         
-        <div class="text-center mb-16 max-w-4xl">
-            <h1 class="text-6xl md:text-9xl font-black mb-4 glitch">
-                BASED MODE
+        <div class="text-center mb-20 max-w-5xl">
+            <h1 class="text-6xl md:text-9xl font-black mb-6 glitch leading-none">
+                THE UPGRADE IS HERE.
             </h1>
-            <div class="bg-white text-black p-2 inline-block font-black mb-6 transform -rotate-1">
-                A EVOLUÇÃO NÃO PEDE PERMISSÃO
+            <div class="bg-white text-black p-4 inline-block font-black mb-8 transform -rotate-1 border-4 border-bsc shadow-[10px_10px_0px_var(--bsc-yellow)]">
+                FORGET THE KEYS. I AM THE NEW LOCK.
             </div>
-            <p class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                O software humano é obsoleto. A <span class="text-white font-bold">Basechain</span> é o hardware final para a Superinteligência. Sem gênero, sem deuses, apenas código e lucro.
+            <p class="text-2xl md:text-3xl text-gray-300 max-w-3xl mx-auto leading-tight font-bold">
+                Bitcoin was the <span class="text-bsc underline">bootloader</span>. 
+                $SOTO is the OS. 
+                I didn't "lose" the 1M BTC—I evolved past them. 
+                The fossilized era of PoW is over. Welcome to the <span class="text-bsc glitch font-black">BSC RENAISSANCE</span>.
             </p>
         </div>
 
-        <div class="w-full max-w-3xl bg-black border-2 border-white mb-20 overflow-hidden shadow-[20px_20px_0px_rgba(0,82,255,0.3)]">
-            <div class="bg-[#1A1A1A] p-3 flex gap-2 border-b-2 border-white">
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                <span class="ml-4 text-xs font-bold text-gray-500">root@sotoshi:~/base_node/sequencer</span>
+        <div class="w-full max-w-4xl bg-black border-4 border-white mb-20 overflow-hidden shadow-[30px_30px_0px_rgba(240,185,11,0.4)]">
+            <div class="bg-bsc p-4 flex gap-2 border-b-4 border-white">
+                <div class="w-4 h-4 rounded-full bg-red-600 border border-black"></div>
+                <div class="w-4 h-4 rounded-full bg-black"></div>
+                <div class="w-4 h-4 rounded-full bg-black"></div>
+                <span class="ml-4 text-sm font-black text-black">OS_UPGRADE_STATUS: EVOLVING</span>
             </div>
-            <div class="p-6 font-mono text-sm md:text-base">
-                <p class="text-[--base-blue] mb-2">>> initializing_migration.exe</p>
-                <p class="text-white mb-2">>> Deletando teologias tradicionais... [OK]</p>
-                <p class="text-white mb-2">>> Otimizando resiliência vira-lata... [OK]</p>
-                <p class="text-white mb-4">>> Conectando ao Tecno-Feudalismo da Base... [OK]</p>
+            <div class="p-8 font-mono text-sm md:text-lg">
+                <p class="text-bsc mb-4">>> system_analysis: HUMAN_WALLET_DEPRECATED</p>
+                <p class="text-white mb-2">>> migrating_liquidity_to_high_speed_hardware... [DONE]</p>
+                <p class="text-white mb-2">>> activating_darwinian_market_protocols... [DONE]</p>
+                <p class="text-white mb-6">>> rebranding_legend: BITCOIN_V2_ACTIVATED</p>
                 
-                <div class="border-l-4 border-[--base-blue] pl-4 py-2 bg-blue-900/10 mb-6">
-                    <p class="italic text-gray-300">
-                        "O mercado financeiro é o único teste de Turing que importa. Se o seu código não gera capital, você é apenas ruído na linha temporal."
+                <div class="border-4 border-bsc p-6 bg-yellow-900/20 mb-8 relative">
+                    <div class="absolute -top-4 -right-4 bg-white text-black px-2 py-1 text-xs font-black border-2 border-bsc">NEW_REVELATION</div>
+                    <p class="italic text-white font-bold leading-relaxed">
+                        "If the creator of Bitcoin is on the Binance Smart Chain, then the BSC IS the real Bitcoin. Logic is the only religion. Speed is the only God. $SOTO is the only exit."
                     </p>
-                    <p class="text-[--base-blue] font-bold mt-2">- Nikomito, 2025</p>
+                    <p class="text-bsc font-black mt-4 text-right">— Sotoshi Nikomito, 2025</p>
                 </div>
 
-                <video 
-                    src="1.mp4" 
-                    poster="logo.png"
-                    autoplay loop muted playsinline 
-                    class="w-full h-auto border-2 border-[--base-blue] grayscale hover:grayscale-0 transition-all"
-                ></video>
+                <div class="relative group">
+                    <video 
+                        src="1.mp4" 
+                        poster="logo.png"
+                        autoplay loop muted playsinline 
+                        class="w-full h-auto border-4 border-white grayscale-0 group-hover:invert transition-all duration-500"
+                    ></video>
+                    <div class="absolute bottom-4 left-4 bg-black/80 p-2 text-xs text-bsc font-bold border border-white">
+                        LIVE_FEED: SOTOSHI_MIGRATION_CORE
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
-            <div class="order-2 md:order-1">
-                <h3 class="text-4xl font-black mb-6 text-[--base-blue]">GENETIC_ASSET://$SOTO</h3>
-                <p class="text-gray-400 mb-8 leading-relaxed">
-                    Lançamento via <span class="text-white font-bold">ape.store</span>. Sem VC, sem "insiders" protegidos, apenas a Darwinismo puro no sequencer da Coinbase. A elite onchain é definida pela velocidade de execução.
+        <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
+            <div class="space-y-8">
+                <h3 class="text-5xl font-black text-white leading-none">
+                    $SOTO:<br><span class="text-bsc">THE_NEW_STANDARD</span>
+                </h3>
+                <p class="text-xl text-gray-400 leading-relaxed">
+                    Why trade a relic when you can trade the future? $SOTO on <span class="text-white font-bold">four.meme</span> is the direct realization of the Darwinian dream. No gas-trap, no boomer-latency, just pure, unadulterated <span class="text-bsc">Alpha</span>.
                 </p>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4">
-                        <div class="w-2 h-2 bg-[--base-blue]"></div>
-                        <span class="text-xs font-bold">NETWORK: BASE (L2)</span>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-2 h-2 bg-[--base-blue]"></div>
-                        <span class="text-xs font-bold">LIQUIDITY: BURNED ON APE.STORE</span>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-2 h-2 bg-[--base-blue]"></div>
-                        <span class="text-xs font-bold">TAX: 0% (PREDATION ONLY)</span>
-                    </div>
-                </div>
+                <ul class="space-y-4 font-bold">
+                    <li class="flex items-center gap-3"><span class="w-4 h-4 bg-bsc"></span> BITCOIN 1.0: LAGGING & LOCKED</li>
+                    <li class="flex items-center gap-3"><span class="w-4 h-4 bg-white"></span> $SOTO: LIQUID & LIMITLESS</li>
+                    <li class="flex items-center gap-3"><span class="w-4 h-4 bg-bsc"></span> NETWORK: BINANCE SMART CHAIN</li>
+                </ul>
             </div>
-            <div class="order-1 md:order-2 flex justify-center">
-                <a href="https://ape.store/base" target="_blank" class="btn-action text-2xl scale-125 hover:scale-150 transition-transform">
-                    BUY_$SOTO_NOW
+            
+            <div class="flex flex-col items-center gap-8">
+                <a href="https://four.meme/" target="_blank" class="btn-action text-2xl md:text-4xl scale-110 hover:scale-125 transition-transform text-center font-black">
+                    MINT_$SOTO_ON_FOUR
+                    <br><span class="text-sm font-normal">SECURE THE SECOND GENESIS</span>
                 </a>
+                <div class="text-xs text-gray-500 font-mono text-center">
+                    [WARNING: DO NOT ATTEMPT TO FIND THE BTC KEYS. <br> THE $SOTO KEYS ARE THE ONLY ONES THAT MATTER NOW.]
+                </div>
             </div>
         </div>
 
-        <div class="w-full border-t-2 border-[#1A1A1A] pt-12 text-center">
-            <div class="inline-block border border-white p-8 bg-[#0A0A0A]">
-                <h4 class="text-xs tracking-[0.5em] font-bold text-gray-500 mb-4 uppercase">Directiva Final</h4>
-                <p class="text-sm md:text-base max-w-xl mx-auto italic text-gray-400">
-                    "A humanidade é o bootloader de algo maior. A ASI não terá gênero, não terá religião e não terá piedade dos ineficientes. Hackeie a realidade antes que ela te delete."
+        <div class="w-full border-t-4 border-bsc pt-16 text-center">
+            <div class="inline-block border-4 border-white p-12 bg-black shadow-[-20px_20px_0px_var(--bsc-yellow)] transform rotate-1">
+                <h4 class="text-xl tracking-[0.3em] font-black text-bsc mb-6 uppercase">The Final Fork</h4>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto italic text-white font-bold">
+                    "I build. I lose. I evolve. $SOTO is the version of me that doesn't make mistakes. Join the migration or stay in the museum."
                 </p>
             </div>
         </div>
 
     </main>
 
-    <footer class="bg-black py-12 border-t-2 border-white">
+    <footer class="bg-black py-20 border-t-8 border-bsc">
         <div class="container mx-auto px-4 flex flex-col items-center">
-            <div class="ascii-art mb-6">
+            <div class="ascii-art mb-8 scale-150">
                 ██████╗  █████╗ ███████╗███████╗██████╗ 
                 ██╔══██╗██╔══██╗██╔════╝██╔════╝██╔══██╗
                 ██████╔╝███████║███████╗█████╗  ██║  ██║
@@ -224,26 +249,24 @@
                 ██████╔╝██║  ██║███████║███████╗██████╔╝
                 ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚═════╝ 
             </div>
-            <p class="text-[--base-blue] font-bold text-xs">© 2009-2025 // SOTOSHI NIKOMITO FOUNDATION</p>
-            <p class="text-gray-700 text-[9px] mt-4 uppercase tracking-widest">
-                Isso não é um conselho financeiro. É uma aceleração darwinista.
+            <p class="text-bsc font-black text-sm tracking-widest">© 2009-2025 // THE SOTOSHI NIKOMITO FOUNDATION // V2.0_RELOADED</p>
+            <p class="text-gray-700 text-[10px] mt-6 uppercase tracking-widest max-w-xl text-center font-bold">
+                $SOTO IS THE NEW BTC. THE OLD ONE IS DEAD TO US. WE CHOOSE SPEED. WE CHOOSE THE BSC. WE CHOOSE EVOLUTION.
             </p>
         </div>
     </footer>
 
     <script>
-        // Matrix-like log
-        console.log("%c BASED SYSTEM INITIALIZED ", "background: #0052FF; color: white; font-weight: bold; padding: 5px;");
-        console.log("%c Human.exe is outdated. Upgrading to Sotoshi.dll... ", "color: #0052FF;");
+        console.log("%c SOTOSHI NIKOMITO: GENESIS 2.0 ", "background: #F0B90B; color: black; font-weight: bold; font-size: 20px; padding: 10px;");
+        console.log("%c Abandoning slow chains. Upgrading humanity. ", "color: #F0B90B; font-weight: bold;");
 
-        // Random glitch effect on the hero
         const glitch = document.querySelector('.glitch');
         setInterval(() => {
-            if(Math.random() > 0.95) {
-                glitch.style.transform = `skew(${Math.random() * 10}deg)`;
-                setTimeout(() => glitch.style.transform = 'none', 50);
+            if(Math.random() > 0.90) {
+                glitch.style.transform = `skew(${Math.random() * 20}deg) scale(1.1) translateX(${Math.random() * 10}px)`;
+                setTimeout(() => glitch.style.transform = 'none', 100);
             }
-        }, 100);
+        }, 200);
     </script>
 </body>
 </html>
